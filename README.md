@@ -372,3 +372,42 @@ python search.py advanced --city guzelyurt --property-type arsa --min-donum 5 --
 python report.py
 python excel_report.py
 ```
+
+---
+
+## Publishing to GitHub (optional)
+
+You have a remote configured at:
+
+```
+origin  https://github.com/ardakaraosmanoglu/kibris-emlak-101evler-scraper (fetch)
+origin  https://github.com/ardakaraosmanoglu/kibris-emlak-101evler-scraper (push)
+```
+
+If you can already push with your Git credentials, simply run a normal push from the repo root:
+
+```powershell
+git push -u origin main
+```
+
+If you prefer using a Personal Access Token (PAT) without storing credentials globally, use the helper scripts in `scripts/`:
+
+1) Create a classic GitHub PAT with the scope: `repo`
+
+2) Push using the PAT (Basic auth header under the hood):
+
+```powershell
+# Usage
+PowerShell -ExecutionPolicy Bypass -File scripts/git_push_with_token.ps1 -Username <github-username> -Token <your_pat> -RemoteUrl "https://github.com/<owner>/<repo>.git" -Branch main
+```
+
+To validate remote access with a PAT without pushing:
+
+```powershell
+PowerShell -ExecutionPolicy Bypass -File scripts/git_lsremote_with_token.ps1 -Username <github-username> -Token <your_pat> -RemoteUrl "https://github.com/<owner>/<repo>.git"
+```
+
+Notes:
+- For fine-grained PATs, ensure permissions include “Contents: Read and Write” and “Administration: Read and Write” if you plan to create repos via API.
+- Interactive alternative: install Git Credential Manager or GitHub CLI (`gh auth login`) and then `git push` will open a browser window to authenticate.
+- Never commit your PAT or include it in URLs stored in git history.
