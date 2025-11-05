@@ -143,6 +143,7 @@ def setup_csv_file():
                 'district', 'city', 'country', 'agency_name', 
                 'url', 'description', 'listing_date', 'update_date', 
                 'title_deed_type', 'min_rental_period', 'payment_interval', 'exchange_option',
+                'area_m2',
                 'price_tl_14x', 'image_links', 'phone_numbers', 'whatsapp_numbers'
             ]
             writer.writerow(headers)
@@ -154,7 +155,7 @@ def setup_csv_file():
             df = pd.read_csv(OUTPUT_FILE)
             
             # Check if we need to remove columns
-            columns_to_remove = ['area_m2', 'floor', 'furnished', 'has_elevator', 'image_count', 'pros_cons', 'agent_id', 'user_id', 'pros', 'cons', 'error']
+            columns_to_remove = ['floor', 'furnished', 'has_elevator', 'image_count', 'pros_cons', 'agent_id', 'user_id', 'pros', 'cons', 'error']
             columns_removed = False
             
             for col in columns_to_remove:
@@ -163,7 +164,7 @@ def setup_csv_file():
                     columns_removed = True
             
             # Check if we need to add new columns
-            new_columns = ['title_deed_type', 'min_rental_period', 'payment_interval', 'exchange_option', 'image_links', 'phone_numbers', 'whatsapp_numbers']
+            new_columns = ['title_deed_type', 'min_rental_period', 'payment_interval', 'exchange_option', 'area_m2', 'image_links', 'phone_numbers', 'whatsapp_numbers']
             columns_added = False
             
             for col in new_columns:
@@ -573,10 +574,38 @@ async def extract_details(html_file):
                     print(f"Found title deed type: {title_deed_type}")
                 
                 elif "Metrekare" in label_text and value_text:
-                    # Extract just the number from "85 m²"
-                    area_match = re.match(r'([0-9,.]+)\s*m²', value_text)
+                    # Extract number for m2 handling common formats like 10.532 m2 or 2,783 m²
+                    area_match = re.search(r'([0-9.,]+)\s*(m2|m²|metrekare)', value_text.lower())
                     if area_match:
-                        area_m2 = int(area_match.group(1).replace(',', ''))
+                        raw_num = area_match.group(1)
+                        def normalize_m2_number(s: str) -> float | None:
+                            s = s.strip()
+                            # Handle TR formats: if both '.' and ',', assume '.' thousands and ',' decimal
+                            if '.' in s and ',' in s:
+                                s2 = s.replace('.', '').replace(',', '.')
+                            elif ',' in s and '.' not in s:
+                                # If comma with 3 digits after -> thousands, else decimal
+                                parts = s.split(',')
+                                if len(parts[-1]) == 3 and ''.join(parts).isdigit():
+                                    s2 = s.replace(',', '')
+                                else:
+                                    s2 = s.replace(',', '.')
+                            elif '.' in s and ',' not in s:
+                                # If 3 digits after last dot and total digits >= 5 -> thousands
+                                last = s.split('.')[-1]
+                                if len(last) == 3 and ''.join(s.split('.')).isdigit():
+                                    s2 = s.replace('.', '')
+                                else:
+                                    s2 = s
+                            else:
+                                s2 = s
+                            try:
+                                return float(s2)
+                            except:
+                                return None
+                        norm = normalize_m2_number(raw_num)
+                        if norm is not None:
+                            area_m2 = round(norm, 2)
                     print(f"Found area: {area_m2} m²")
                 
                 elif "Takas" in label_text and value_text:
@@ -726,6 +755,13 @@ async def extract_details(html_file):
                     update_date = update_match.group(1)
                     print(f"Found update date via regex: {update_date}")
         
+        # If area not found yet, try to parse from description text using local units
+        if area_m2 is None and description:
+            text = description.lower()
+            area_m2 = parse_area_from_text(text)
+            if area_m2:
+                print(f"Derived area from description: {area_m2} m²")
+
         # Extract phone numbers
         phone_numbers = extract_phone_numbers(soup)
         phone_numbers_str = ','.join(phone_numbers) if phone_numbers else None
@@ -762,6 +798,7 @@ async def extract_details(html_file):
             "min_rental_period": min_rental_period,
             "payment_interval": payment_interval,
             "exchange_option": exchange_option,
+            "area_m2": area_m2,
             "image_links": image_links,
             "phone_numbers": phone_numbers_str,
             "whatsapp_numbers": whatsapp_numbers_str
@@ -793,10 +830,107 @@ async def extract_details(html_file):
             "min_rental_period": min_rental_period,
             "payment_interval": payment_interval,
             "exchange_option": exchange_option,
+            "area_m2": area_m2,
             "image_links": image_links,
             "phone_numbers": phone_numbers_str if 'phone_numbers_str' in locals() else None,
             "whatsapp_numbers": whatsapp_numbers_str if 'whatsapp_numbers_str' in locals() else None
         }
+
+# --- Helpers for parsing area from free text (dönüm/evlek/ayak kare) ---
+DONUM_M2 = 1338.0
+EVLEK_M2 = DONUM_M2 / 4.0  # ~334.5 m²
+FT2_TO_M2 = 0.092903
+
+def _extract_number(token):
+    # Generic extractor treating both ',' and '.' as decimal separators; not suitable for m2 with thousands.
+    try:
+        t = token.strip()
+        if not t:
+            return None
+        # If both separators present, assume TR format: '.' thousands, ',' decimal
+        if '.' in t and ',' in t:
+            t = t.replace('.', '').replace(',', '.')
+        else:
+            # Prefer decimal interpretation
+            t = t.replace(',', '.')
+        return float(t)
+    except:
+        return None
+
+def _normalize_m2_number(token: str) -> float | None:
+    """Normalize numbers for m² where separators may be thousands or decimal.
+    Rules:
+    - if both '.' and ',' exist: '.' thousands, ',' decimal
+    - if only ',' exists: if last group has 3 digits and rest digits -> thousands; else decimal
+    - if only '.' exists: if last group has 3 digits and total digits >=5 -> thousands; else decimal
+    """
+    s = token.strip()
+    if not s:
+        return None
+    if '.' in s and ',' in s:
+        s2 = s.replace('.', '').replace(',', '.')
+    elif ',' in s:
+        parts = s.split(',')
+        if len(parts[-1]) == 3 and ''.join(parts).isdigit():
+            s2 = s.replace(',', '')
+        else:
+            s2 = s.replace(',', '.')
+    elif '.' in s:
+        last = s.split('.')[-1]
+        if len(last) == 3 and ''.join(s.split('.')).isdigit() and len(''.join(s.split('.'))) >= 5:
+            s2 = s.replace('.', '')
+        else:
+            s2 = s
+    else:
+        s2 = s
+    try:
+        return float(s2)
+    except:
+        return None
+
+def parse_area_from_text(text: str):
+    # Prefer explicit m2 if present (handle thousands/decimal variants)
+    m2_match = re.search(r'(\d+[\.,]?\d*)\s*(m2|m²|metrekare)', text)
+    if m2_match:
+        val = _normalize_m2_number(m2_match.group(1))
+        if val:
+            return round(val, 2)
+
+    # Combined donum + evlek in either order
+    combo1 = re.search(r'(\d+[\.,]?\d*)\s*(dönüm|donum)[^\d]*(\d+[\.,]?\d*)\s*evlek', text)
+    combo2 = re.search(r'(\d+[\.,]?\d*)\s*evlek[^\d]*(\d+[\.,]?\d*)\s*(dönüm|donum)', text)
+    if combo1:
+        d = _extract_number(combo1.group(1)) or 0.0
+        e = _extract_number(combo1.group(3)) or 0.0
+        return round(d * DONUM_M2 + e * EVLEK_M2, 2)
+    if combo2:
+        e = _extract_number(combo2.group(1)) or 0.0
+        d = _extract_number(combo2.group(2)) or 0.0
+        return round(d * DONUM_M2 + e * EVLEK_M2, 2)
+
+    # Try dönüm (treat separators as decimal, not thousands)
+    donum_match = re.search(r'(\d+[\.,]?\d*)\s*(donum|dönüm)', text)
+    if donum_match:
+        val = _extract_number(donum_match.group(1))
+        if val:
+            return round(val * DONUM_M2, 2)
+
+    # Try evlek only
+    evlek_match = re.search(r'(\d+[\.,]?\d*)\s*evlek', text)
+    if evlek_match:
+        val = _extract_number(evlek_match.group(1))
+        if val:
+            return round(val * EVLEK_M2, 2)
+
+    # Try ayak kare (square feet) numbers (allow thousands separators)
+    ayak_match = re.search(r'(\d+[\.,]?\d*)\s*(ayak\s*kare|ft2|ft²|sq\s*ft)', text)
+    if ayak_match:
+        # Use m2-number normalization to treat thousands as thousands
+        val = _normalize_m2_number(ayak_match.group(1))
+        if val:
+            return round(val * FT2_TO_M2, 2)
+
+    return None
 
 # Main function to process files
 async def main():
@@ -937,6 +1071,46 @@ async def restart_extraction(interval_minutes=30, max_runs=10):
         print(f"Waiting {interval_minutes} minutes before next extraction run...")
         await asyncio.sleep(interval_minutes * 60)
 
+# Utility: Fix/normalize area_m2 values in existing CSV using improved parser
+def fix_areas_in_csv(min_plausible_land_m2: float = 100.0) -> int:
+    try:
+        if not os.path.exists(OUTPUT_FILE):
+            print(f"CSV not found: {OUTPUT_FILE}")
+            return 0
+        df = pd.read_csv(OUTPUT_FILE)
+        if 'area_m2' not in df.columns:
+            print("CSV has no area_m2 column. Nothing to fix.")
+            return 0
+        # Ensure numeric
+        df['area_m2'] = pd.to_numeric(df['area_m2'], errors='coerce')
+
+        def is_land(row) -> bool:
+            pt = str(row.get('property_type', '')).lower()
+            pst = str(row.get('property_subtype', '')).lower()
+            return ('arsa' in pt) or ('arsa' in pst)
+
+        fixes = 0
+        for idx, row in df.iterrows():
+            if not is_land(row):
+                continue
+            cur = row.get('area_m2')
+            cur_val = float(cur) if pd.notna(cur) else None
+            text = (str(row.get('description') or '') + ' ' + str(row.get('title') or '')).lower()
+            new_val = parse_area_from_text(text)
+            if new_val and (cur_val is None or cur_val < min_plausible_land_m2 or new_val > cur_val * 1.5):
+                df.at[idx, 'area_m2'] = round(new_val, 2)
+                fixes += 1
+
+        if fixes > 0:
+            df.to_csv(OUTPUT_FILE, index=False)
+            print(f"Fixed area_m2 for {fixes} land listings in CSV")
+        else:
+            print("No area_m2 fixes applied (all values plausible)")
+        return fixes
+    except Exception as e:
+        print(f"Error while fixing areas: {e}")
+        return 0
+
 # Run the script
 if __name__ == "__main__":
     print(f"Starting property extraction on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -962,6 +1136,16 @@ if __name__ == "__main__":
             
             print(f"Running in continuous mode with {interval} minute intervals, maximum {max_runs} runs.")
             asyncio.run(restart_extraction(interval, max_runs))
+        elif len(sys.argv) > 1 and sys.argv[1] == "--fix-areas":
+            # Optional threshold override
+            threshold = 100.0
+            if len(sys.argv) > 2:
+                try:
+                    threshold = float(sys.argv[2])
+                except ValueError:
+                    print(f"Invalid threshold: {sys.argv[2]}. Using default: 100 m².")
+            fixed = fix_areas_in_csv(min_plausible_land_m2=threshold)
+            print(f"Area fix completed. Updated rows: {fixed}")
         else:
             asyncio.run(main())
             

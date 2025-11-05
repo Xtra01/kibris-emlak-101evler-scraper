@@ -6,10 +6,10 @@
 # =============================================================================
 
 # Şehir seçimi
-CITY = "iskele"  # Seçenekler: iskele, magusa, lefkosa, girne, gazimagusa
+CITY = "lefkosa"  # Seçenekler: iskele, magusa, lefkosa, girne, gazimagusa, guzelyurt
 
 # Emlak türü seçimi
-PROPERTY_TYPE = "satilik-villa"  # Seçenekler: satilik-villa, satilik-daire, satilik-ev, kiralik-villa, kiralik-daire
+PROPERTY_TYPE = "kiralik-daire"  # Seçenekler: satilik-villa, satilik-daire, satilik-ev, kiralik-villa, kiralik-daire, satilik-arsa
 
 # Sıralama türü
 SORT = "mr"  # mr=en yeni, pa=fiyat artan, pd=fiyat azalan
@@ -117,8 +117,8 @@ def get_api_params(page=1):
     return f"page={page}&s_r={config['sale']}&property_type={config['type']}&city={CITY}&{subtype_string}"
 
 def get_listing_pattern():
-    """İlan linklerini bulmak için pattern"""
-    return r'/kibris/satilik-emlak/[\w-]+-\d+\.html'
+    """İlan linklerini bulmak için pattern (satılık ve kiralık ilanlar)"""
+    return r'/kibris/(satilik|kiralik)-emlak/[\w-]+-\d+\.html'
 
 def apply_quick_config(config_name):
     """Hızlı ayar uygular"""

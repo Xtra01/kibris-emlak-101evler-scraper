@@ -1,11 +1,9 @@
-asyncio # Built-in
-os # Built-in
-re # Built-in
-urllib.parse # Built-in
+# Core dependencies (asyncio, os, re, urllib.parse are built-in)
 crawl4ai
 beautifulsoup4
 pandas
 tqdm
 requests
-lxml # Required by pandas for read_csv and by beautifulsoup4 for XML parsing
-openpyxl # Required by pandas for excel support, though not directly used, often good to include 
+lxml  # Required by pandas for read_csv and by beautifulsoup4 for XML parsing
+openpyxl  # Required by pandas for excel support
+python-docx==1.1.2  # For Word document generation 

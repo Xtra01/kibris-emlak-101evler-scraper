@@ -142,4 +142,233 @@ This feature makes the scraper more resilient against temporary access restricti
 
 ## Dependencies
 
-See `requirements.txt`. 
+See `requirements.txt`.
+
+---
+
+## Docker Deployment
+
+### Quick Start with Docker
+
+The easiest way to run this scraper is using Docker, which handles all dependencies including Playwright browsers automatically.
+
+#### Prerequisites
+- Docker installed (version 20.10+)
+- Docker Compose installed (version 1.29+)
+
+#### Build and Run
+
+1. **Build the Docker image:**
+   ```bash
+   docker-compose build
+   ```
+
+2. **Run the scraper (one-time execution):**
+   ```bash
+   docker-compose run --rm scraper python main.py
+   ```
+
+3. **Run data extraction:**
+   ```bash
+   docker-compose run --rm scraper python extract_data.py
+   ```
+
+4. **Generate reports:**
+   ```bash
+   docker-compose run --rm scraper python report.py
+   ```
+
+5. **Run orchard analysis:**
+   ```bash
+   docker-compose run --rm scraper python orchard_analysis.py
+   ```
+
+6. **Generate Word report for agents:**
+   ```bash
+   docker-compose run --rm scraper python generate_agent_report.py
+   ```
+
+7. **Search examples:**
+   ```bash
+   # Basic search
+   docker-compose run --rm scraper python search.py basic "guzelyurt arsa" --out reports/search_results.xlsx
+   
+   # Advanced search
+   docker-compose run --rm scraper python search.py advanced --city guzelyurt --property-type arsa --min-donum 5
+   ```
+
+#### Persistent Storage
+
+All important data is persisted via Docker volumes:
+- `property_details.csv` - Main database
+- `pages/` - Search result HTML pages
+- `listings/` - Individual listing HTML files
+- `reports/` - Generated reports (MD, XLSX, DOCX)
+- `temp/` - Temporary files
+
+These directories are mapped to your local filesystem, so data persists even if containers are removed.
+
+#### Run as a Service
+
+To run the scraper continuously in the background:
+
+```bash
+docker-compose up -d scraper
+```
+
+View logs:
+```bash
+docker-compose logs -f scraper
+```
+
+Stop the service:
+```bash
+docker-compose down
+```
+
+#### Scheduled Execution (Optional)
+
+To enable automated scheduling with cron:
+
+1. Edit `crontab` file to configure your schedule
+2. Start the scheduler service:
+   ```bash
+   docker-compose --profile scheduler up -d scraper-scheduler
+   ```
+
+Example cron schedule:
+- Daily scraping at 2 AM
+- Data extraction at 2:30 AM
+- Report generation at 3 AM
+- Weekly orchard analysis on Mondays at 4 AM
+
+#### Resource Management
+
+Default resource limits:
+- CPU: 1-2 cores
+- Memory: 1-2 GB
+
+Adjust in `docker-compose.yml` under `deploy.resources` if needed.
+
+#### Shell Access
+
+For debugging or manual operations:
+```bash
+docker-compose run --rm scraper /bin/bash
+```
+
+#### Environment Variables
+
+Add custom environment variables in `docker-compose.yml` under the `environment` section:
+```yaml
+environment:
+  - PYTHONUNBUFFERED=1
+  - CUSTOM_VAR=value
+```
+
+### Docker Commands Reference
+
+```bash
+# Build image
+docker-compose build
+
+# Run specific script
+docker-compose run --rm scraper python <script.py>
+
+# Start service in background
+docker-compose up -d
+
+# View logs
+docker-compose logs -f [service-name]
+
+# Stop all services
+docker-compose down
+
+# Remove volumes (WARNING: deletes data)
+docker-compose down -v
+
+# Shell access
+docker-compose run --rm scraper /bin/bash
+
+# Check container status
+docker-compose ps
+
+# Restart service
+docker-compose restart scraper
+```
+
+### Troubleshooting
+
+**Playwright browser issues:**
+- Browsers are pre-installed in the Docker image
+- If issues occur, rebuild: `docker-compose build --no-cache`
+
+**Permission errors:**
+- Ensure the mounted directories are writable
+- On Linux: `chmod -R 777 pages listings reports temp`
+
+**Out of memory:**
+- Increase memory limits in docker-compose.yml
+- Or restart Docker Desktop and allocate more resources
+
+**Network timeouts:**
+- Check your internet connection
+- Increase timeout values in scripts if needed
+
+**Data not persisting:**
+- Verify volume mounts in docker-compose.yml
+- Check that local directories exist before running 
+
+---
+
+## Project Structure
+
+```
+.
+├─ listings/                 # Saved listing HTML files (persisted)
+├─ pages/                    # Saved search page HTML files (persisted)
+├─ reports/                  # Generated reports (MD/XLSX/DOCX)
+├─ temp/                     # Temporary files
+├─ docs/
+│  └─ DOCKER.md             # Docker deployment guide
+├─ orchard_analysis.py       # Orchard pricing analysis (CLI & library)
+├─ generate_agent_report.py  # Emlakçıya yönelik Word rapor üretimi
+├─ report.py                 # Genel/arsa/kira raporlama yardımcıları
+├─ search.py                 # Basic/advanced arama ve CLI
+├─ extract_data.py           # HTML'den CSV çıkarımı
+├─ main.py                   # Scraper giriş noktası
+├─ docker-compose.yml        # Orkestrasyon
+├─ Dockerfile                # Multi-stage Docker image
+├─ .dockerignore             # Build optimizasyonu
+├─ crontab                   # Opsiyonel cron görevleri
+├─ setup-docker.sh           # Linux/Mac kurulum kolaylaştırıcı
+├─ setup-docker.bat          # Windows kurulum kolaylaştırıcı
+├─ requirements.txt          # Python bağımlılıkları
+└─ README.md                 # Bu dosya
+```
+
+---
+
+## Ready-to-use code snippets
+
+### 1) Güzelyurt arsa (≥1 dönüm) narenciye analizi ve özet JSON
+```powershell
+python orchard_analysis.py --city guzelyurt --property-type arsa --listing-type Sale --min-donum 1 --export-json reports/guzelyurt_orchard_summary.json
+```
+
+### 2) 10 dönümlük Piyalepaşa odağı ve Word rapor
+```powershell
+python orchard_analysis.py --min-donum 10 --core-city-token guzelyurt --core-district-tokens piyalepasa,merkez --export-xlsx reports/guzelyurt_orchard_pricing_core10.xlsx
+python generate_agent_report.py
+```
+
+### 3) Gelişmiş arama: Güzelyurt ≥5 dönüm arsa, ₺/dönüm artan
+```powershell
+python search.py advanced --city guzelyurt --property-type arsa --min-donum 5 --sort price_per_donum_try:asc --out reports/arama_guzelyurt_arsa_5donum.xlsx
+```
+
+### 4) Raporları üret (Markdown + Excel)
+```powershell
+python report.py
+python excel_report.py
+```

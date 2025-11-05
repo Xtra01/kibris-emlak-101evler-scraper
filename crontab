@@ -1,0 +1,19 @@
+# Optional: Cron schedule for automated scraping
+# Uncomment and customize as needed
+
+# Run scraper daily at 2 AM
+# 0 2 * * * cd /app && python main.py >> /var/log/scraper.log 2>&1
+
+# Extract data after scraping (2:30 AM)
+# 30 2 * * * cd /app && python extract_data.py >> /var/log/extractor.log 2>&1
+
+# Generate reports (3 AM)
+# 0 3 * * * cd /app && python report.py >> /var/log/reports.log 2>&1
+
+# Run orchard analysis weekly (Mondays at 4 AM)
+# 0 4 * * 1 cd /app && python orchard_analysis.py >> /var/log/orchard.log 2>&1
+
+# Generate Word report weekly (Mondays at 4:15 AM)
+# 15 4 * * 1 cd /app && python generate_agent_report.py >> /var/log/agent_report.log 2>&1
+
+# Keep an empty line at the end for cron
