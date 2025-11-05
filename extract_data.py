@@ -24,7 +24,6 @@ MAX_CONCURRENT = 3
 EXCHANGE_RATES_URL = "https://www.tcmb.gov.tr/kurlar/today.xml"
 
 # Remove OpenRouter API setup
-# API_KEY = "[REMOVED]"
 # MODEL = "llama3-70b-8192"
 
 # Remove client initialization
