@@ -1,0 +1,14 @@
+[rules]
+
+# You can fine-tune or add allowlists if there are false positives.
+
+[allowlist]
+description = "Allow non-sensitive generated artifacts and samples"
+paths = [
+  "reports/.*",           # binary office files can trigger entropy-based FP
+  "docs/DOCKER.md",       # contains URLs and command examples
+]
+
+[allowlist.regexes]
+# Example of ignoring obviously redacted placeholders in docs or examples
+redacted_placeholders = "(?i)(REDACTED|YOUR_TOKEN_HERE|YOUR_PAT_HERE)"

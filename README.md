@@ -411,3 +411,17 @@ Notes:
 - For fine-grained PATs, ensure permissions include “Contents: Read and Write” and “Administration: Read and Write” if you plan to create repos via API.
 - Interactive alternative: install Git Credential Manager or GitHub CLI (`gh auth login`) and then `git push` will open a browser window to authenticate.
 - Never commit your PAT or include it in URLs stored in git history.
+
+---
+
+## Secret hygiene and protections
+
+- Do NOT commit secrets (token, API key, password, cookies) — even in comments.
+- Store secrets in `.env` (gitignored) or CI secrets. Use `.env.example` as a template.
+- Local protection: pre-commit runs Gitleaks on staged changes.
+   - Install once: `pip install pre-commit` then `pre-commit install`.
+   - Optional full run: `pre-commit run --all-files`.
+- CI protection: GitHub Actions runs Gitleaks on every push/PR.
+- If a leak happens: revoke/rotate the key, remove from files, rewrite history with `git-filter-repo`, and force-push.
+
+Detaylı rehber için `docs/SECURITY.md` dosyasına bakın.
