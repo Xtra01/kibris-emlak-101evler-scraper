@@ -1,0 +1,106 @@
+{
+  "timestamp": "2025-11-06T04:42:00.073192",
+  "total_configs": 12,
+  "success": 0,
+  "failed": 12,
+  "exception": 0,
+  "total_elapsed_seconds": 34.994417667388916,
+  "results": {
+    "lefkosa_kiralik-daire": {
+      "name": "Lefkosa Daire",
+      "city": "lefkosa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.15630340576171875
+    },
+    "lefkosa_kiralik-villa": {
+      "name": "Lefkosa Villa",
+      "city": "lefkosa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.15250396728515625
+    },
+    "girne_kiralik-daire": {
+      "name": "Girne Daire",
+      "city": "girne",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.16045904159545898
+    },
+    "girne_kiralik-villa": {
+      "name": "Girne Villa",
+      "city": "girne",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.14930486679077148
+    },
+    "magusa_kiralik-daire": {
+      "name": "Magusa Daire",
+      "city": "magusa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.14568567276000977
+    },
+    "magusa_kiralik-villa": {
+      "name": "Magusa Villa",
+      "city": "magusa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.15952301025390625
+    },
+    "gazimagusa_kiralik-daire": {
+      "name": "Gazimagusa Daire",
+      "city": "gazimagusa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.15649700164794922
+    },
+    "gazimagusa_kiralik-villa": {
+      "name": "Gazimagusa Villa",
+      "city": "gazimagusa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.14717411994934082
+    },
+    "iskele_kiralik-daire": {
+      "name": "Iskele Daire",
+      "city": "iskele",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.15596961975097656
+    },
+    "iskele_kiralik-villa": {
+      "name": "Iskele Villa",
+      "city": "iskele",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.19038057327270508
+    },
+    "guzelyurt_kiralik-daire": {
+      "name": "Guzelyurt Daire",
+      "city": "guzelyurt",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.16361045837402344
+    },
+    "guzelyurt_kiralik-villa": {
+      "name": "Guzelyurt Villa",
+      "city": "guzelyurt",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.1503455638885498
+    }
+  }
+}

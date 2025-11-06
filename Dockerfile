@@ -27,7 +27,8 @@ FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PATH=/root/.local/bin:$PATH \
-    PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
+    PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright \
+    PYTHONPATH=/app/src
 
 # Install runtime dependencies for Playwright
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -72,4 +73,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import sys; sys.exit(0)" || exit 1
 
 # Default command - can be overridden
-CMD ["python", "-u", "main.py"]
+CMD ["python", "-u", "-m", "scraper.main"]

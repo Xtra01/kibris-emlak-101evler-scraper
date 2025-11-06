@@ -30,12 +30,12 @@ services:
           memory: 1G
     # Override default command for different operations
     # Uncomment one of the following or override via docker-compose run
-    # command: python main.py  # Default scraper
-    # command: python extract_data.py  # Run extractor
-    # command: python report.py  # Generate reports
-    # command: python orchard_analysis.py  # Run orchard analysis
-    # command: python generate_agent_report.py  # Generate Word report
-    # command: python search.py basic "guzelyurt arsa"  # Search example
+  # command: python -m scraper.main  # Default scraper
+  # command: python -m scraper.extract_data  # Run extractor
+  # command: python -m scraper.report  # Generate reports
+  # command: python -m scraper.orchard_analysis  # Run orchard analysis
+  # command: python -m scraper.generate_agent_report  # Generate Word report
+  # command: python -m scraper.search basic "guzelyurt arsa"  # Search example
     # command: /bin/bash  # Interactive shell
 
   # Optional: Add a scheduled job service using cron

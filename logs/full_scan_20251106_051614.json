@@ -1,0 +1,239 @@
+{
+  "timestamp": "2025-11-06T05:17:36.275798",
+  "total_configs": 24,
+  "success": 0,
+  "failed": 24,
+  "total_elapsed_seconds": 81.34529232978821,
+  "cities": [
+    "lefkosa",
+    "girne",
+    "magusa",
+    "gazimagusa",
+    "iskele",
+    "guzelyurt"
+  ],
+  "property_types": [
+    "kiralik-daire",
+    "kiralik-villa",
+    "kiralik-ev",
+    "kiralik-isyeri"
+  ],
+  "results": {
+    "lefkosa_kiralik-daire": {
+      "name": "Lefkosa - Daire",
+      "city": "lefkosa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.3527681827545166,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "girne_kiralik-daire": {
+      "name": "Girne - Daire",
+      "city": "girne",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5088365077972412,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "magusa_kiralik-daire": {
+      "name": "Magusa - Daire",
+      "city": "magusa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5035862922668457,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "gazimagusa_kiralik-daire": {
+      "name": "Gazimagusa - Daire",
+      "city": "gazimagusa",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5628845691680908,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "iskele_kiralik-daire": {
+      "name": "Iskele - Daire",
+      "city": "iskele",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.49144601821899414,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "guzelyurt_kiralik-daire": {
+      "name": "Guzelyurt - Daire",
+      "city": "guzelyurt",
+      "property_type": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5398001670837402,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "lefkosa_kiralik-villa": {
+      "name": "Lefkosa - Villa",
+      "city": "lefkosa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5589709281921387,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "girne_kiralik-villa": {
+      "name": "Girne - Villa",
+      "city": "girne",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.473172664642334,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "magusa_kiralik-villa": {
+      "name": "Magusa - Villa",
+      "city": "magusa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5136001110076904,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "gazimagusa_kiralik-villa": {
+      "name": "Gazimagusa - Villa",
+      "city": "gazimagusa",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.4665980339050293,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "iskele_kiralik-villa": {
+      "name": "Iskele - Villa",
+      "city": "iskele",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.46131038665771484,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "guzelyurt_kiralik-villa": {
+      "name": "Guzelyurt - Villa",
+      "city": "guzelyurt",
+      "property_type": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5049428939819336,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "lefkosa_kiralik-ev": {
+      "name": "Lefkosa - Ev",
+      "city": "lefkosa",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.47618937492370605,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "girne_kiralik-ev": {
+      "name": "Girne - Ev",
+      "city": "girne",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.4864771366119385,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "magusa_kiralik-ev": {
+      "name": "Magusa - Ev",
+      "city": "magusa",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.6054394245147705,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "gazimagusa_kiralik-ev": {
+      "name": "Gazimagusa - Ev",
+      "city": "gazimagusa",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.524458646774292,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "iskele_kiralik-ev": {
+      "name": "Iskele - Ev",
+      "city": "iskele",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.49797677993774414,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "guzelyurt_kiralik-ev": {
+      "name": "Guzelyurt - Ev",
+      "city": "guzelyurt",
+      "property_type": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.531702995300293,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "lefkosa_kiralik-isyeri": {
+      "name": "Lefkosa - Isyeri",
+      "city": "lefkosa",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.46524834632873535,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "girne_kiralik-isyeri": {
+      "name": "Girne - Isyeri",
+      "city": "girne",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.49245667457580566,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "magusa_kiralik-isyeri": {
+      "name": "Magusa - Isyeri",
+      "city": "magusa",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5611670017242432,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "gazimagusa_kiralik-isyeri": {
+      "name": "Gazimagusa - Isyeri",
+      "city": "gazimagusa",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.4692823886871338,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "iskele_kiralik-isyeri": {
+      "name": "Iskele - Isyeri",
+      "city": "iskele",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5173912048339844,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    },
+    "guzelyurt_kiralik-isyeri": {
+      "name": "Guzelyurt - Isyeri",
+      "city": "guzelyurt",
+      "property_type": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 0.5612916946411133,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\scraper\\main.py\", line 5, in <module>\n    from crawl4ai import AsyncWebCrawler\nModuleNotFoundError: No module named 'crawl4ai'\n"
+    }
+  }
+}

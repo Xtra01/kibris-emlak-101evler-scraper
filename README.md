@@ -49,23 +49,23 @@ This project scrapes property listing data from 101evler.com (specifically for N
 
 ## Usage
 
-### 1. Scraping Listings (`main.py`)
+### 1. Scraping Listings (`scraper.main`)
 
 This script crawls the search result pages to find listing URLs and then scrapes each listing's HTML content.
 
 *   **Configuration:**
-    *   Open `main.py`.
+   *   Open `src/scraper/main.py`.
     *   Modify `base_search_url`: Change the path (e.g., `/magusa`, `/girne`, `/lefkosa`) to target different areas or property types (e.g., `kiralik-daire`, `satilik-villa`). The base should look like `https://www.101evler.com/kibris/<listing_type>/<area>`.
     *   You can also adjust the `output_dir` (default: `listings`) and `pages_dir` (default: `pages`) if needed.
 *   **Command-line Arguments:**
     *   `--max-pages`: Specify the maximum number of search pages to scrape.
       ```bash
-      python main.py --max-pages 15
+   python -m scraper.main --max-pages 15
       ```
       If not specified, the script will automatically detect and use the total number of pages from the website.
 *   **Run the scraper:**
     ```bash
-    python main.py
+   python -m scraper.main
     ```
     The script will:
     *   Fetch the first search page and automatically determine the total number of pages and listings.
@@ -80,13 +80,13 @@ This script crawls the search result pages to find listing URLs and then scrapes
     *   If blocked on second attempt, the script will stop.
     *   Failed listing URLs are saved to `listings/failed/failed_urls.txt` for potential retries.
 
-### 2. Extracting Data (`extract_data.py`)
+### 2. Extracting Data (`scraper.extract_data`)
 
 This script parses the saved HTML files in the `listings/` directory and extracts property details into a CSV file.
 
 *   **Run the extractor:**
     ```bash
-    python extract_data.py
+   python -m scraper.extract_data
     ```
     The script will:
     *   Read all `.html` files from the `listings/` directory.
@@ -99,7 +99,7 @@ This script parses the saved HTML files in the `listings/` directory and extract
 *   **Continuous Mode:**
     To run the extractor periodically (e.g., if the scraper runs in the background or via cron):
     ```bash
-    python extract_data.py --continuous [INTERVAL_MINUTES] [MAX_RUNS]
+   python -m scraper.extract_data --continuous [INTERVAL_MINUTES] [MAX_RUNS]
     ```
     *   `INTERVAL_MINUTES`: Wait time in minutes between runs (default: 30).
     *   `MAX_RUNS`: Maximum number of times to run (default: 10).
@@ -165,36 +165,55 @@ The easiest way to run this scraper is using Docker, which handles all dependenc
 
 2. **Run the scraper (one-time execution):**
    ```bash
-   docker-compose run --rm scraper python main.py
+   docker-compose run --rm scraper python -m scraper.main
    ```
 
 3. **Run data extraction:**
    ```bash
-   docker-compose run --rm scraper python extract_data.py
+   docker-compose run --rm scraper python -m scraper.extract_data
    ```
 
 4. **Generate reports:**
    ```bash
-   docker-compose run --rm scraper python report.py
+   docker-compose run --rm scraper python -m scraper.report
    ```
 
 5. **Run orchard analysis:**
    ```bash
-   docker-compose run --rm scraper python orchard_analysis.py
+   docker-compose run --rm scraper python -m scraper.orchard_analysis
    ```
 
 6. **Generate Word report for agents:**
    ```bash
-   docker-compose run --rm scraper python generate_agent_report.py
+   docker-compose run --rm scraper python -m scraper.generate_agent_report
    ```
 
 7. **Search examples:**
    ```bash
    # Basic search
-   docker-compose run --rm scraper python search.py basic "guzelyurt arsa" --out reports/search_results.xlsx
+   docker-compose run --rm scraper python -m scraper.search basic "guzelyurt arsa" --out reports/search_results.xlsx
    
    # Advanced search
-   docker-compose run --rm scraper python search.py advanced --city guzelyurt --property-type arsa --min-donum 5
+   docker-compose run --rm scraper python -m scraper.search advanced --city guzelyurt --property-type arsa --min-donum 5
+
+### One-shot: Lefkoşa kiralık evler ≤ ₺30.000 (Docker)
+
+End-to-end example to scrape, extract, and report all Lefkoşa rentals with max ₺30,000:
+
+```powershell
+# 1) Scrape Lefkoşa rental listings (adjust max pages as needed)
+docker-compose run --rm scraper python -m scraper.main --city lefkosa --listing-type kiralik --property-type daire --max-pages 15
+
+# 2) Extract data from saved HTML into CSV
+docker-compose run --rm scraper python -m scraper.extract_data
+
+# 3) Generate filtered rental report (Markdown/Excel output under reports/)
+docker-compose run --rm scraper python -m scraper.report lefkosa-rent --max-price-try 30000
+```
+
+Notes:
+- Step 1 parameters depend on your CLI in `scraper.main` (city/listing-type/subtype). If not available, run the default scrape and rely on step 3 filter.
+- The report command will focus on KKTC Lefkoşa rentals and include only entries where normalized price in TRY ≤ 30,000.
    ```
 
 #### Persistent Storage
@@ -325,26 +344,25 @@ docker-compose restart scraper
 
 ```
 .
+├─ src/
+│  └─ scraper/
+│     ├─ __init__.py
+│     ├─ main.py                  # Scraper entrypoint (python -m scraper.main)
+│     ├─ extract_data.py          # HTML → CSV extractor (python -m scraper.extract_data)
+│     ├─ report.py                # Reports + CLI (general, guzelyurt-land, lefkosa-rent)
+│     ├─ excel_report.py          # Excel aggregations
+│     ├─ search.py                # Basic/advanced search + export
+│     ├─ orchard_analysis.py      # Orchard/land analysis
+│     └─ generate_agent_report.py # Agent-facing DOCX
 ├─ listings/                 # Saved listing HTML files (persisted)
 ├─ pages/                    # Saved search page HTML files (persisted)
 ├─ reports/                  # Generated reports (MD/XLSX/DOCX)
 ├─ temp/                     # Temporary files
-├─ docs/
-│  └─ DOCKER.md             # Docker deployment guide
-├─ orchard_analysis.py       # Orchard pricing analysis (CLI & library)
-├─ generate_agent_report.py  # Emlakçıya yönelik Word rapor üretimi
-├─ report.py                 # Genel/arsa/kira raporlama yardımcıları
-├─ search.py                 # Basic/advanced arama ve CLI
-├─ extract_data.py           # HTML'den CSV çıkarımı
-├─ main.py                   # Scraper giriş noktası
-├─ docker-compose.yml        # Orkestrasyon
-├─ Dockerfile                # Multi-stage Docker image
-├─ .dockerignore             # Build optimizasyonu
-├─ crontab                   # Opsiyonel cron görevleri
-├─ setup-docker.sh           # Linux/Mac kurulum kolaylaştırıcı
-├─ setup-docker.bat          # Windows kurulum kolaylaştırıcı
-├─ requirements.txt          # Python bağımlılıkları
-└─ README.md                 # Bu dosya
+├─ docker-compose.yml        # Orchestration
+├─ Dockerfile                # Multi-stage Docker image (PYTHONPATH=/app/src)
+├─ crontab                   # Optional cron jobs (module-based)
+├─ requirements.txt          # Python dependencies
+└─ README.md                 # This file
 ```
 
 ---
@@ -353,24 +371,24 @@ docker-compose restart scraper
 
 ### 1) Güzelyurt arsa (≥1 dönüm) narenciye analizi ve özet JSON
 ```powershell
-python orchard_analysis.py --city guzelyurt --property-type arsa --listing-type Sale --min-donum 1 --export-json reports/guzelyurt_orchard_summary.json
+python -m scraper.orchard_analysis --city guzelyurt --property-type arsa --listing-type Sale --min-donum 1 --export-json reports/guzelyurt_orchard_summary.json
 ```
 
 ### 2) 10 dönümlük Piyalepaşa odağı ve Word rapor
 ```powershell
-python orchard_analysis.py --min-donum 10 --core-city-token guzelyurt --core-district-tokens piyalepasa,merkez --export-xlsx reports/guzelyurt_orchard_pricing_core10.xlsx
-python generate_agent_report.py
+python -m scraper.orchard_analysis --min-donum 10 --core-city-token guzelyurt --core-district-tokens piyalepasa,merkez --export-xlsx reports/guzelyurt_orchard_pricing_core10.xlsx
+python -m scraper.generate_agent_report
 ```
 
 ### 3) Gelişmiş arama: Güzelyurt ≥5 dönüm arsa, ₺/dönüm artan
 ```powershell
-python search.py advanced --city guzelyurt --property-type arsa --min-donum 5 --sort price_per_donum_try:asc --out reports/arama_guzelyurt_arsa_5donum.xlsx
+python -m scraper.search advanced --city guzelyurt --property-type arsa --min-donum 5 --sort price_per_donum_try:asc --out reports/arama_guzelyurt_arsa_5donum.xlsx
 ```
 
 ### 4) Raporları üret (Markdown + Excel)
 ```powershell
-python report.py
-python excel_report.py
+python -m scraper.report
+python -m scraper.excel_report
 ```
 
 ---
