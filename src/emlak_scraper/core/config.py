@@ -48,6 +48,31 @@ QUICK_CONFIGS = {
 # Dosya klasörleri (yeni organizasyon yapısı)
 OUTPUT_DIR = "data/raw/listings"
 
+def get_output_dir(city: str = None, category: str = None) -> str:
+    """
+    Get dynamic output directory based on city and category
+    
+    Args:
+        city: City name (e.g., 'girne', 'iskele')
+        category: Property category (e.g., 'satilik-daire', 'kiralik-villa')
+    
+    Returns:
+        Full path to output directory
+        
+    Examples:
+        get_output_dir('girne', 'satilik-daire') → 'data/raw/listings/girne/satilik-daire'
+        get_output_dir() → 'data/raw/listings' (legacy mode)
+    """
+    if city and category:
+        return f"{OUTPUT_DIR}/{city}/{category}"
+    elif city:
+        return f"{OUTPUT_DIR}/{city}"
+    else:
+        # Legacy mode: use CITY and PROPERTY_TYPE from config
+        if CITY and PROPERTY_TYPE:
+            return f"{OUTPUT_DIR}/{CITY}/{PROPERTY_TYPE}"
+        return OUTPUT_DIR
+
 # CRITICAL FIX: Config-specific pages directory to prevent cross-config contamination
 # Each city-category combination gets its own pages folder
 def get_pages_dir():

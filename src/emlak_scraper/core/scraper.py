@@ -297,14 +297,33 @@ async def extract_total_counts_from_api(crawler, base_url):
 
     return None, None
 
-async def main():
+async def main(city: str = None, category: str = None):
+    """
+    Main scraper function
+    
+    Args:
+        city: City name (e.g., 'girne', 'iskele'). If None, uses config.CITY
+        category: Property category (e.g., 'satilik-daire'). If None, uses config.PROPERTY_TYPE
+    """
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--max-pages', type=int, default=None, help='Maksimum çekilecek sayfa sayısı')
     args = parser.parse_args()
+    
+    # Use provided city/category or fallback to config
+    scrape_city = city or config.CITY
+    scrape_category = category or config.PROPERTY_TYPE
+    
     # base_search_url konfigürasyondan alınır
     base_search_url = config.get_base_search_url()
-    output_dir = config.OUTPUT_DIR
+    
+    # 🔧 FIX: Use dynamic output directory based on city/category
+    output_dir = config.get_output_dir(scrape_city, scrape_category)
+    
+    # Create output directory if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        print(f"[SETUP] Created output directory: {output_dir}")
     
     # CRITICAL FIX: Use config-specific pages directory
     pages_dir = config.get_pages_dir()

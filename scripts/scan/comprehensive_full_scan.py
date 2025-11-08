@@ -284,49 +284,43 @@ async def run_scraper(city: str, category: str, name: str, index: int, total: in
         logger.info(f"[LOCATION] {city.title()} | [TYPE] {category}")
         logger.info(f"{'='*70}\n")
         
-        # Config guncelle
-        if not update_config(city, category):
-            return {
-                'status': 'failed',
-                'message': 'Config update failed',
-                'elapsed': time.time() - start_time
-            }
+        # 🔧 FIX: NO CONFIG FILE MODIFICATION NEEDED
+        # City/category passed as parameters to scraper.main()
         
         # ============================================================================
-        # DIRECT ASYNC CALL - No subprocess, run scraper directly
+        # DIRECT ASYNC CALL - With city/category parameters
         # ============================================================================
-        # Subprocess causes Playwright crashes and encoding issues
-        # Running directly in same process is more reliable
+        # NO module reload needed - pass city/category as parameters
         try:
-            # CRITICAL: Reload config module to pick up changes
-            import importlib
-            from emlak_scraper.core import config as cfg_module
-            importlib.reload(cfg_module)
-            
             from emlak_scraper.core import scraper
-            importlib.reload(scraper)
             
             logger.info(f"[RUN] Starting scraper for {name}...")
-            logger.info(f"[CONFIG] City={cfg_module.CITY}, Type={cfg_module.PROPERTY_TYPE}")
+            logger.info(f"[CONFIG] City={city}, Category={category}")
             
             # Clear sys.argv to prevent argparse conflicts
             original_argv = sys.argv.copy()
             sys.argv = [sys.argv[0]]  # Only keep script name
             
             try:
-                # Run scraper's main() function directly
-                await scraper.main()
+                # 🔧 FIX: Pass city/category as parameters (NO RELOAD!)
+                await scraper.main(city=city, category=category)
             finally:
                 # Restore original argv
                 sys.argv = original_argv
             
+            # Count collected files
+            from pathlib import Path
+            output_dir = Path('data/raw/listings') / city / category
+            files_collected = len(list(output_dir.glob('*.html'))) if output_dir.exists() else 0
+            
             elapsed = time.time() - start_time
-            logger.info(f"[OK] BASARILI: {name} ({elapsed:.1f}s)")
+            logger.info(f"[OK] BASARILI: {name} ({elapsed:.1f}s, {files_collected} files)")
             
             return {
                 'status': 'success',
                 'message': 'Completed',
-                'elapsed': elapsed
+                'elapsed': elapsed,
+                'files_collected': files_collected
             }
             
         except Exception as e:
