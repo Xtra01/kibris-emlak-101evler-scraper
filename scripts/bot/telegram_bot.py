@@ -173,16 +173,78 @@ class TelegramBot:
     def cmd_progress(self):
         """Progress command - detailed progress info"""
         try:
+            # Try to read from state file first
             state_file = Path('/app/data/cache/scraper_state.json')
+            state_data = None
+            
             if state_file.exists():
                 with open(state_file, 'r') as f:
-                    state = json.load(f)
+                    state_data = json.load(f)
+            
+            # Also check logs for real-time progress
+            import subprocess
+            try:
+                log_result = subprocess.run(
+                    ['tail', '-100', '/proc/1/fd/1'],
+                    capture_output=True,
+                    text=True,
+                    timeout=2
+                )
+                logs = log_result.stdout
                 
-                completed = state.get('completed', [])
-                failed = state.get('failed', [])
-                current = state.get('current', {})
+                # Parse progress from logs
+                import re
+                progress_match = re.search(r'📊 Progress: (\d+)/(\d+) batches completed', logs)
+                elapsed_match = re.search(r'⏱️\s+Elapsed: ([\d.]+) minutes', logs)
+                eta_match = re.search(r'🎯 Estimated finish: [\d:]+ \(in ([\d.]+) minutes\)', logs)
                 
-                total_configs = 72  # Known total
+                if progress_match:
+                    current_batch = int(progress_match.group(1))
+                    total_batches = int(progress_match.group(2))
+                    elapsed = float(elapsed_match.group(1)) if elapsed_match else 0
+                    eta = float(eta_match.group(1)) if eta_match else 0
+                    
+                    progress_pct = (current_batch / total_batches) * 100
+                    
+                    # Create progress bar
+                    bar_length = 10
+                    filled = int(bar_length * progress_pct / 100)
+                    bar = '█' * filled + '░' * (bar_length - filled)
+                    
+                    msg = (
+                        f"📈 *Scan İlerlemesi* (Real-time)\n\n"
+                        f"{bar} {progress_pct:.1f}%\n\n"
+                        f"📊 *Detaylar:*\n"
+                        f"   🔄 Batch: {current_batch}/{total_batches}\n"
+                        f"   ⏱️ Geçen: {elapsed:.1f} dakika\n"
+                        f"   🎯 Kalan: {eta:.1f} dakika\n\n"
+                    )
+                    
+                    # Add state info if available
+                    if state_data:
+                        completed = len(state_data.get('completed', []))
+                        failed = len(state_data.get('failed', []))
+                        current = state_data.get('current', {})
+                        
+                        msg += f"📋 *Config Durumu:*\n"
+                        msg += f"   ✅ Tamamlanan: {completed}\n"
+                        msg += f"   ❌ Başarısız: {failed}\n"
+                        
+                        if current:
+                            msg += f"   ⏳ Şu an: {current.get('name', 'N/A')}\n"
+                    
+                    self.send_message(msg)
+                    return
+            except Exception as e:
+                print(f"Log parsing error: {e}")
+            
+            # Fallback to state file only
+            if state_data:
+                completed = state_data.get('completed', [])
+                failed = state_data.get('failed', [])
+                current = state_data.get('current', {})
+                
+                total_configs = 72
                 completed_count = len(completed)
                 failed_count = len(failed)
                 remaining = total_configs - completed_count - failed_count
@@ -192,7 +254,6 @@ class TelegramBot:
                 
                 progress_pct = (completed_count / total_configs) * 100
                 
-                # Create progress bar
                 bar_length = 10
                 filled = int(bar_length * progress_pct / 100)
                 bar = '█' * filled + '░' * (bar_length - filled)
@@ -209,17 +270,15 @@ class TelegramBot:
                 if current:
                     msg += f"🔄 *Şu an çalışan:*\n   {current.get('name', 'N/A')}\n\n"
                 
-                # Started time
-                started = state.get('started_at', '')
+                started = state_data.get('started_at', '')
                 if started:
                     msg += f"🕐 Başlangıç: {started[:19]}\n"
                 
-                # Last successful
                 if completed:
                     last = completed[-1]
                     msg += f"✅ Son tamamlanan: {last.get('name', 'N/A')}\n"
             else:
-                msg = "⚠️ State dosyası bulunamadı!"
+                msg = "⚠️ İlerleme bilgisi bulunamadı!\n\nScan çalışmıyor olabilir."
             
             self.send_message(msg)
         except Exception as e:
