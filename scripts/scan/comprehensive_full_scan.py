@@ -43,6 +43,14 @@ from pathlib import Path
 import argparse
 import logging
 
+# Notification imports
+try:
+    from emlak_scraper import notifications
+    NOTIFICATIONS_AVAILABLE = True
+except ImportError:
+    NOTIFICATIONS_AVAILABLE = False
+    logging.warning("Notification module not available - running without notifications")
+
 # ============================================================================
 # Windows UTF-8 Encoding Fix (MUST be before any imports that use Rich)
 # ============================================================================
@@ -405,6 +413,13 @@ async def main(args):
         logger.info("[OK] Tum konfigurasyonlar tamamlanmis!")
         return
     
+    # Send scan started notification
+    if NOTIFICATIONS_AVAILABLE and not args.resume:
+        try:
+            notifications.notify_scan_started(len(configs_to_run))
+        except Exception as e:
+            logger.warning(f"Notification failed: {e}")
+    
     # Sonuclar
     results = {}
     total_start = time.time()
@@ -434,12 +449,35 @@ async def main(args):
         # State guncelle
         if result['status'] == 'success':
             state['completed'].append(config)
+            # Notify success
+            if NOTIFICATIONS_AVAILABLE:
+                try:
+                    notifications.notify_config_completed(
+                        config_name=name,
+                        file_count=result.get('files_collected', 0),
+                        completed=len(state['completed']),
+                        total=len(configs_to_run),
+                        duration=time.time() - total_start
+                    )
+                except Exception as e:
+                    logger.debug(f"Notification failed: {e}")
         elif result.get('message') and '404' in result.get('message', ''):
             # Category doesn't exist - mark as skipped, not failed
             state['completed'].append({**config, 'skipped': True, 'reason': 'Category not found (404)'})
             logger.info(f"[SKIP] Category doesn't exist: {name}")
         else:
             state['failed'].append({**config, 'error': result.get('message')})
+            # Notify failure
+            if NOTIFICATIONS_AVAILABLE:
+                try:
+                    notifications.notify_config_failed(
+                        config_name=name,
+                        error=result.get('message', 'Unknown error'),
+                        completed=len(state['completed']),
+                        total=len(configs_to_run)
+                    )
+                except Exception as e:
+                    logger.debug(f"Notification failed: {e}")
         
         state['current'] = None
         save_state(state)
@@ -495,6 +533,25 @@ async def main(args):
         json.dump(summary, f, indent=2, ensure_ascii=False)
     
     logger.info(f"[SAVE] JSON kaydedildi: {json_file}")
+    
+    # Calculate total files collected
+    total_files = sum([r.get('files_collected', 0) for r in results.values() if r.get('status') == 'success'])
+    data_path = Path('data/raw/listings')
+    data_size_mb = sum(f.stat().st_size for f in data_path.glob('*.html')) / 1024 / 1024 if data_path.exists() else 0
+    
+    # Send scan finished notification
+    if NOTIFICATIONS_AVAILABLE:
+        try:
+            notifications.notify_scan_finished({
+                'total_configs': len(configs_to_run),
+                'completed': success_count,
+                'failed': failed_count,
+                'total_files': total_files,
+                'data_size_mb': data_size_mb,
+                'duration_minutes': total_elapsed / 60
+            })
+        except Exception as e:
+            logger.warning(f"Notification failed: {e}")
     
     # Parser calistir
     logger.info("\n" + "="*70)
