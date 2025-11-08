@@ -11,6 +11,10 @@ from pathlib import Path
 from datetime import datetime
 import requests
 from typing import Optional, Dict, Any
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 class TelegramBot:
     """Interactive Telegram Bot with command handling"""

@@ -51,6 +51,15 @@ except ImportError:
     NOTIFICATIONS_AVAILABLE = False
     logging.warning("Notification module not available - running without notifications")
 
+# Auto-parse imports
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+    from scripts.utils.auto_parse import parse_and_update
+    AUTO_PARSE_AVAILABLE = True
+except ImportError:
+    AUTO_PARSE_AVAILABLE = False
+    logging.warning("Auto-parse module not available - running without auto-parse")
+
 # ============================================================================
 # Windows UTF-8 Encoding Fix (MUST be before any imports that use Rich)
 # ============================================================================
@@ -449,6 +458,16 @@ async def main(args):
         # State guncelle
         if result['status'] == 'success':
             state['completed'].append(config)
+            
+            # 🔄 AUTO-PARSE: Config tamamlandı, hemen parse et
+            if AUTO_PARSE_AVAILABLE:
+                try:
+                    logger.info(f"[PARSE] Auto-parsing {name}...")
+                    parse_and_update(city, category, auto_excel=True)
+                    logger.info(f"[PARSE] ✅ Auto-parse completed for {name}")
+                except Exception as e:
+                    logger.error(f"[PARSE] ❌ Auto-parse failed for {name}: {e}")
+            
             # Notify success
             if NOTIFICATIONS_AVAILABLE:
                 try:
