@@ -18,12 +18,10 @@ __author__ = "Xtra01"
 __license__ = "MIT"
 
 from .core import scraper, parser, config
-from .reports import excel, markdown
 
-__all__ = [
-    "scraper",
-    "parser",
-    "config",
-    "excel",
-    "markdown",
-]
+# Reports module (optional - may not exist yet)
+try:
+    from .reports import excel, markdown
+    __all__ = ["scraper", "parser", "config", "excel", "markdown"]
+except ImportError:
+    __all__ = ["scraper", "parser", "config"]
