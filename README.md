@@ -1,5 +1,10 @@
 # 101evler.com Scraper and Data Extractor
 
+> **⚠️ SECURITY ALERT**: This repository had exposed secrets in history. See [SECURITY.md](./SECURITY.md) for immediate actions.
+>
+> **🔀 FORK NOTICE**: This is a heavily modified fork. Original: [ardakaraosmanoglu/kibris-emlak-101evler-scraper](https://github.com/ardakaraosmanoglu/kibris-emlak-101evler-scraper)  
+> **Changes**: +2000 lines, Telegram bot, notifications, Docker support, comprehensive scanning, professional architecture.
+
 This project scrapes property listing data from 101evler.com (specifically for Northern Cyprus) and extracts the details into a structured CSV file.
 
 ## Features
