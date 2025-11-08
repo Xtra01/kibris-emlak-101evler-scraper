@@ -6,15 +6,26 @@ Gmail SMTP bağlantısını test eder
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
+import sys
+
+load_dotenv()
 
 print("📧 Gmail SMTP Testi\n")
 
-# Config
-SMTP_HOST = "smtp.gmail.com"
-SMTP_PORT = 587
-SMTP_USER = "ekremregister@gmail.com"
-SMTP_PASSWORD = "etzrmxdkmdpw"  # App Password (boşluklar kaldırıldı)
-NOTIFY_EMAIL = "ekremregister@gmail.com"
+# Config from environment
+SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+NOTIFY_EMAIL = os.getenv("NOTIFY_EMAIL")
+
+# Validate
+if not all([SMTP_USER, SMTP_PASSWORD, NOTIFY_EMAIL]):
+    print("❌ ERROR: Missing credentials in .env file!")
+    print("Required: SMTP_USER, SMTP_PASSWORD, NOTIFY_EMAIL")
+    sys.exit(1)
 
 print(f"🔗 Bağlantı kuruluyor: {SMTP_HOST}:{SMTP_PORT}")
 

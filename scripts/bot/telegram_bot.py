@@ -382,8 +382,13 @@ class TelegramBot:
 # Main execution
 if __name__ == "__main__":
     # Load from environment
-    TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8567356269:AAH839-_n3--eykejU4TQBQ4eQS8FY_10yE')
-    CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '8386214866')
+    TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+    if not TOKEN:
+        raise ValueError("TELEGRAM_BOT_TOKEN environment variable not set!")
+    
+    CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+    if not CHAT_ID:
+        raise ValueError("TELEGRAM_CHAT_ID environment variable not set!")
     
     if not TOKEN or not CHAT_ID:
         print("❌ TELEGRAM_BOT_TOKEN ve TELEGRAM_CHAT_ID gerekli!")

@@ -5,9 +5,17 @@ Botunuza /start komutu gönderdikten sonra bu scripti çalıştırın
 
 import requests
 import json
+import os
+from dotenv import load_dotenv
+import sys
 
-# Bot token
-BOT_TOKEN = "8567356269:AAH839-_n3--eykejU4TQBQ4eQS8FY_10yE"
+load_dotenv()
+
+# Bot token from environment
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+if not BOT_TOKEN:
+    print("❌ ERROR: TELEGRAM_BOT_TOKEN not found in .env file!")
+    sys.exit(1)
 
 print("🔍 Telegram Bot Chat ID Bulucu\n")
 print("📱 Adımlar:")

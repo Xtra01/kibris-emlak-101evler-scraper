@@ -2,9 +2,17 @@
 import os
 import requests
 from typing import Optional
+from dotenv import load_dotenv
 
-TELEGRAM_BOT_TOKEN = os.environ["8567356269:AAH839-_n3--eykejU4TQBQ4eQS8FY_10yE"]
-TELEGRAM_CHAT_ID = os.environ["8386214866"]
+load_dotenv()
+
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+if not TELEGRAM_BOT_TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN not set in environment!")
+    
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
+if not TELEGRAM_CHAT_ID:
+    raise ValueError("TELEGRAM_CHAT_ID not set in environment!")
 
 BASE_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
