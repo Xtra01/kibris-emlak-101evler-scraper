@@ -7,4 +7,5 @@ requests
 lxml  # Required by pandas for read_csv and by beautifulsoup4 for XML parsing
 openpyxl  # Required by pandas for excel support
 python-docx==1.1.2  # For Word document generation
-python-dotenv  # For notification system .env configuration 
+python-dotenv  # For notification system .env configuration
+psutil  # For system monitoring (CPU, RAM, disk) 

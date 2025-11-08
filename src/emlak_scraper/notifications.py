@@ -209,27 +209,60 @@ _Monitoring in progress..._
     def notify_config_completed(self, config_name: str, file_count: int, 
                                completed: int, total: int, duration: float):
         """Notify when a config completes"""
-        # Only notify every N configs
-        if completed % self.notify_every_n != 0:
-            return
-        
         if not self.notify_on_complete:
             return
         
         timestamp = datetime.now().strftime('%H:%M:%S')
         duration_min = duration / 60
         
-        # Telegram
+        # Calculate progress
+        progress_pct = (completed / total) * 100
+        
+        # Create progress bar (10 chars)
+        bar_length = 10
+        filled = int(bar_length * progress_pct / 100)
+        bar = '█' * filled + '░' * (bar_length - filled)
+        
+        # Telegram - DETAILED MESSAGE FOR EVERY CONFIG
         telegram_msg = f"""
-✅ *Progress Update*
+✅ *Config Tamamlandı!*
 
-📍 Latest: {config_name}
-📄 Files: {file_count}
-📊 Progress: {completed}/{total} configs
-⏱️ Duration: {duration_min:.1f} min
-🕐 {timestamp}
+📍 *{config_name}*
+📄 Dosya: {file_count} HTML
+💾 Konum: `/app/data/raw/listings/`
+
+📊 *İlerleme:*
+{bar} {progress_pct:.1f}%
+   Tamamlanan: {completed}/{total}
+   Kalan: {total - completed}
+
+⏱️ Süre: {duration_min:.1f} dakika
+🕐 Saat: {timestamp}
+
+_Bir sonraki config başlatılıyor..._
 """
         self.send_telegram(telegram_msg.strip())
+        
+        # Progress update notification (every N configs - for email)
+        if completed % self.notify_every_n == 0:
+            email_body = f"""
+<html>
+<body style="font-family: Arial, sans-serif;">
+    <h3 style="color: #4CAF50;">✅ İlerleme Güncellemesi</h3>
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+        <p><strong>Son Tamamlanan:</strong> {config_name}</p>
+        <p><strong>Toplanan Dosya:</strong> {file_count}</p>
+        <p><strong>İlerleme:</strong> {completed}/{total} ({progress_pct:.1f}%)</p>
+        <p><strong>Süre:</strong> {duration_min:.1f} dakika</p>
+    </div>
+</body>
+</html>
+"""
+            self.send_email(
+                subject=f"📊 Scan İlerlemesi - {completed}/{total}",
+                body=email_body,
+                html=True
+            )
     
     def notify_config_failed(self, config_name: str, error: str, 
                             completed: int, total: int):
