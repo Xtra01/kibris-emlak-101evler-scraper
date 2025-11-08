@@ -518,6 +518,23 @@ async def main():
                 print(f"📊 Progress: {current_batch}/{total_batches} batches completed")
                 print(f"⏱️  Elapsed: {elapsed_time/60:.1f} minutes")
                 print(f"🎯 Estimated finish: {finish_time.strftime('%H:%M:%S')} (in {estimated_remaining_time/60:.1f} minutes)")
+                
+                # Write real-time progress to file for Telegram bot
+                try:
+                    progress_file = Path(config.CACHE_DIR) / "batch_progress.json"
+                    progress_data = {
+                        "current_batch": current_batch,
+                        "total_batches": total_batches,
+                        "progress_percent": (current_batch / total_batches) * 100,
+                        "elapsed_minutes": elapsed_time / 60,
+                        "eta_minutes": estimated_remaining_time / 60,
+                        "estimated_finish": finish_time.isoformat(),
+                        "last_updated": datetime.datetime.now().isoformat()
+                    }
+                    with open(progress_file, 'w', encoding='utf-8') as f:
+                        json.dump(progress_data, f, indent=2, ensure_ascii=False)
+                except Exception as e:
+                    print(f"Warning: Could not write progress file: {e}")
 
             if i + batch_size < len(tasks):
                 # Konfigürasyondan batch delay

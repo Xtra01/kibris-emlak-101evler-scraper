@@ -181,62 +181,54 @@ class TelegramBot:
                 with open(state_file, 'r') as f:
                     state_data = json.load(f)
             
-            # Also check logs for real-time progress
-            import subprocess
-            try:
-                log_result = subprocess.run(
-                    ['tail', '-100', '/proc/1/fd/1'],
-                    capture_output=True,
-                    text=True,
-                    timeout=2
+            # Check for real-time batch progress file (updated every batch)
+            progress_file = Path('/app/data/cache/batch_progress.json')
+            batch_data = None
+            
+            if progress_file.exists():
+                try:
+                    with open(progress_file, 'r', encoding='utf-8') as f:
+                        batch_data = json.load(f)
+                except Exception as e:
+                    print(f"Error reading progress file: {e}")
+            
+            # Build message with real-time data if available
+            if batch_data:
+                current_batch = batch_data.get('current_batch', 0)
+                total_batches = batch_data.get('total_batches', 1)
+                progress_pct = batch_data.get('progress_percent', 0)
+                elapsed = batch_data.get('elapsed_minutes', 0)
+                eta = batch_data.get('eta_minutes', 0)
+                
+                # Create progress bar
+                bar_length = 10
+                filled = int(bar_length * progress_pct / 100)
+                bar = '█' * filled + '░' * (bar_length - filled)
+                
+                msg = (
+                    f"📈 *Scan İlerlemesi* (Real-time)\n\n"
+                    f"{bar} {progress_pct:.1f}%\n\n"
+                    f"📊 *Batch İlerlemesi:*\n"
+                    f"   🔄 Batch: {current_batch}/{total_batches}\n"
+                    f"   ⏱️ Geçen: {elapsed:.1f} dakika\n"
+                    f"   🎯 Kalan: {eta:.1f} dakika\n\n"
                 )
-                logs = log_result.stdout
                 
-                # Parse progress from logs
-                import re
-                progress_match = re.search(r'📊 Progress: (\d+)/(\d+) batches completed', logs)
-                elapsed_match = re.search(r'⏱️\s+Elapsed: ([\d.]+) minutes', logs)
-                eta_match = re.search(r'🎯 Estimated finish: [\d:]+ \(in ([\d.]+) minutes\)', logs)
+                # Add state info if available
+                if state_data:
+                    completed = len(state_data.get('completed', []))
+                    failed = len(state_data.get('failed', []))
+                    current = state_data.get('current', {})
+                    
+                    msg += f"📋 *Config Durumu:*\n"
+                    msg += f"   ✅ Tamamlanan: {completed}\n"
+                    msg += f"   ❌ Başarısız: {failed}\n"
+                    
+                    if current:
+                        msg += f"   ⏳ Şu an: {current.get('name', 'N/A')}\n"
                 
-                if progress_match:
-                    current_batch = int(progress_match.group(1))
-                    total_batches = int(progress_match.group(2))
-                    elapsed = float(elapsed_match.group(1)) if elapsed_match else 0
-                    eta = float(eta_match.group(1)) if eta_match else 0
-                    
-                    progress_pct = (current_batch / total_batches) * 100
-                    
-                    # Create progress bar
-                    bar_length = 10
-                    filled = int(bar_length * progress_pct / 100)
-                    bar = '█' * filled + '░' * (bar_length - filled)
-                    
-                    msg = (
-                        f"📈 *Scan İlerlemesi* (Real-time)\n\n"
-                        f"{bar} {progress_pct:.1f}%\n\n"
-                        f"📊 *Detaylar:*\n"
-                        f"   🔄 Batch: {current_batch}/{total_batches}\n"
-                        f"   ⏱️ Geçen: {elapsed:.1f} dakika\n"
-                        f"   🎯 Kalan: {eta:.1f} dakika\n\n"
-                    )
-                    
-                    # Add state info if available
-                    if state_data:
-                        completed = len(state_data.get('completed', []))
-                        failed = len(state_data.get('failed', []))
-                        current = state_data.get('current', {})
-                        
-                        msg += f"📋 *Config Durumu:*\n"
-                        msg += f"   ✅ Tamamlanan: {completed}\n"
-                        msg += f"   ❌ Başarısız: {failed}\n"
-                        
-                        if current:
-                            msg += f"   ⏳ Şu an: {current.get('name', 'N/A')}\n"
-                    
-                    self.send_message(msg)
-                    return
-            except Exception as e:
-                print(f"Log parsing error: {e}")
+                self.send_message(msg)
+                return
             
             # Fallback to state file only
             if state_data:
