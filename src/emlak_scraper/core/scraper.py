@@ -326,7 +326,7 @@ async def main(city: str = None, category: str = None):
         print(f"[SETUP] Created output directory: {output_dir}")
     
     # CRITICAL FIX: Use config-specific pages directory
-    pages_dir = config.get_pages_dir()
+    pages_dir = config.get_pages_dir(scrape_city, scrape_category)
     
     all_listing_links = set()
 

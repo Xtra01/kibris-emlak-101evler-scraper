@@ -75,19 +75,27 @@ def get_output_dir(city: str = None, category: str = None) -> str:
 
 # CRITICAL FIX: Config-specific pages directory to prevent cross-config contamination
 # Each city-category combination gets its own pages folder
-def get_pages_dir():
+def get_pages_dir(city=None, category=None):
     """Get config-specific pages directory to avoid skip logic conflicts
+    
+    Parameters:
+        city: City name (or None to use config.CITY)
+        category: Category name (or None to use config.PROPERTY_TYPE)
     
     IMPORTANT: Uses ASCII-safe slugs to avoid Windows path issues with Turkish characters
     Windows filesystem cannot handle certain Unicode characters in paths (especially ı, ş, etc.)
     """
     import re
+    # Use parameters if provided, otherwise fall back to config values (legacy mode)
+    pages_city = city or CITY
+    pages_category = category or PROPERTY_TYPE
+    
     # Create ASCII-safe slug: remove special chars, replace Turkish chars, lowercase
-    safe_property_type = PROPERTY_TYPE.replace('ı', 'i').replace('ş', 's').replace('İ', 'i')
+    safe_property_type = pages_category.replace('ı', 'i').replace('ş', 's').replace('İ', 'i')
     safe_property_type = safe_property_type.replace('ğ', 'g').replace('ü', 'u').replace('ö', 'o')
     safe_property_type = safe_property_type.replace('ç', 'c').replace('Ş', 's').replace('Ğ', 'g')
     safe_property_type = re.sub(r'[^\w\-]', '_', safe_property_type)
-    return f"data/raw/pages/{CITY}_{safe_property_type}"
+    return f"data/raw/pages/{pages_city}_{safe_property_type}"
 
 PAGES_DIR = "data/raw/pages"  # Legacy - use get_pages_dir() instead
 
