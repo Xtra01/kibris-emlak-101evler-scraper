@@ -6,10 +6,10 @@
 # =============================================================================
 
 # Şehir seçimi
-CITY = "iskele"  # Auto-updated by full_rental_scan.py
+CITY = "gazimagusa"  # Auto-updated by comprehensive_full_scan.py
 
 # Emlak türü seçimi
-PROPERTY_TYPE = "kiralik-isyeri"  # Auto-updated by full_rental_scan.py
+PROPERTY_TYPE = "satilik-isyeri"  # Auto-updated by comprehensive_full_scan.py
 
 # Sıralama türü
 SORT = "id"  # id=ID sırası (eski->yeni), mr=en yeni, pa=fiyat artan, pd=fiyat azalan
@@ -47,7 +47,24 @@ QUICK_CONFIGS = {
 
 # Dosya klasörleri (yeni organizasyon yapısı)
 OUTPUT_DIR = "data/raw/listings"
-PAGES_DIR = "data/raw/pages"
+
+# CRITICAL FIX: Config-specific pages directory to prevent cross-config contamination
+# Each city-category combination gets its own pages folder
+def get_pages_dir():
+    """Get config-specific pages directory to avoid skip logic conflicts
+    
+    IMPORTANT: Uses ASCII-safe slugs to avoid Windows path issues with Turkish characters
+    Windows filesystem cannot handle certain Unicode characters in paths (especially ı, ş, etc.)
+    """
+    import re
+    # Create ASCII-safe slug: remove special chars, replace Turkish chars, lowercase
+    safe_property_type = PROPERTY_TYPE.replace('ı', 'i').replace('ş', 's').replace('İ', 'i')
+    safe_property_type = safe_property_type.replace('ğ', 'g').replace('ü', 'u').replace('ö', 'o')
+    safe_property_type = safe_property_type.replace('ç', 'c').replace('Ş', 's').replace('Ğ', 'g')
+    safe_property_type = re.sub(r'[^\w\-]', '_', safe_property_type)
+    return f"data/raw/pages/{CITY}_{safe_property_type}"
+
+PAGES_DIR = "data/raw/pages"  # Legacy - use get_pages_dir() instead
 
 # İndirme hızı (1-5 arası, 3 önerilen)
 BATCH_SIZE = 3
@@ -67,12 +84,16 @@ PROPERTY_CONFIGS = {
     "satilik-ev": {"type": 1, "subtype": [1], "sale": "R"},
     "satilik-daire": {"type": 1, "subtype": [2], "sale": "R"},
     "satilik-arsa": {"type": 2, "subtype": [3], "sale": "R"},
+    "satilik-arazi": {"type": 2, "subtype": [3], "sale": "R"},  # Alternative for arsa
+    "satilik-isyeri": {"type": 4, "subtype": [5], "sale": "R"},
+    "satilik-proje": {"type": 5, "subtype": [6], "sale": "R"},  # Projects
     
-    # KİRALIK - Tüm kategoriler
+    # KİRALIK
     "kiralik-daire": {"type": 1, "subtype": [2], "sale": "L"},
     "kiralik-villa": {"type": 3, "subtype": [4], "sale": "L"},
     "kiralik-ev": {"type": 1, "subtype": [1], "sale": "L"},
     "kiralik-isyeri": {"type": 4, "subtype": [5], "sale": "L"},
+    "kiralik-gunluk": {"type": 1, "subtype": [2], "sale": "L"},  # Daily rental
 }
 
 # Site ayarları

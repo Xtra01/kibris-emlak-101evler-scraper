@@ -1,0 +1,964 @@
+{
+  "timestamp": "2025-11-08T17:27:28.282070",
+  "total_configs": 66,
+  "success": 1,
+  "failed": 65,
+  "total_elapsed_seconds": 40441.022587537766,
+  "cities": [
+    "girne",
+    "iskele",
+    "lefkosa",
+    "gazimagusa",
+    "guzelyurt",
+    "lefke"
+  ],
+  "sale_categories": [
+    "satilik-daire",
+    "satilik-villa",
+    "satilik-ev",
+    "satilik-arsa",
+    "satilik-isyeri",
+    "satilik-proje"
+  ],
+  "rent_categories": [
+    "kiralik-daire",
+    "kiralik-villa",
+    "kiralik-ev",
+    "kiralik-isyeri",
+    "kiralik-gunluk"
+  ],
+  "results": {
+    "girne_satilik-daire": {
+      "name": "Girne - Satilik Daire",
+      "city": "girne",
+      "category": "satilik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 40152.85514974594
+    },
+    "girne_satilik-villa": {
+      "name": "Girne - Satilik Villa",
+      "city": "girne",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.8679578304290771
+    },
+    "girne_satilik-ev": {
+      "name": "Girne - Satilik Ev",
+      "city": "girne",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4153435230255127
+    },
+    "girne_satilik-arsa": {
+      "name": "Girne - Satilik Arsa",
+      "city": "girne",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4298057556152344
+    },
+    "girne_satilik-isyeri": {
+      "name": "Girne - Satilik Isyeri",
+      "city": "girne",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2434027194976807
+    },
+    "girne_satilik-proje": {
+      "name": "Girne - Satilik Proje",
+      "city": "girne",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.213329553604126
+    },
+    "girne_kiralik-daire": {
+      "name": "Girne - Kiralik Daire",
+      "city": "girne",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.160632848739624
+    },
+    "girne_kiralik-villa": {
+      "name": "Girne - Kiralik Villa",
+      "city": "girne",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.20833420753479
+    },
+    "girne_kiralik-ev": {
+      "name": "Girne - Kiralik Ev",
+      "city": "girne",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5711886882781982
+    },
+    "girne_kiralik-isyeri": {
+      "name": "Girne - Kiralik Isyeri",
+      "city": "girne",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5708820819854736
+    },
+    "girne_kiralik-gunluk": {
+      "name": "Girne - Kiralik Gunluk",
+      "city": "girne",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3713486194610596
+    },
+    "iskele_satilik-daire": {
+      "name": "Iskele - Satilik Daire",
+      "city": "iskele",
+      "category": "satilik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4452788829803467
+    },
+    "iskele_satilik-villa": {
+      "name": "Iskele - Satilik Villa",
+      "city": "iskele",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.1588122844696045
+    },
+    "iskele_satilik-ev": {
+      "name": "Iskele - Satilik Ev",
+      "city": "iskele",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2843525409698486
+    },
+    "iskele_satilik-arsa": {
+      "name": "Iskele - Satilik Arsa",
+      "city": "iskele",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5407204627990723
+    },
+    "iskele_satilik-isyeri": {
+      "name": "Iskele - Satilik Isyeri",
+      "city": "iskele",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4549980163574219
+    },
+    "iskele_satilik-proje": {
+      "name": "Iskele - Satilik Proje",
+      "city": "iskele",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2630436420440674
+    },
+    "iskele_kiralik-daire": {
+      "name": "Iskele - Kiralik Daire",
+      "city": "iskele",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2063672542572021
+    },
+    "iskele_kiralik-villa": {
+      "name": "Iskele - Kiralik Villa",
+      "city": "iskele",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4223401546478271
+    },
+    "iskele_kiralik-ev": {
+      "name": "Iskele - Kiralik Ev",
+      "city": "iskele",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5160105228424072
+    },
+    "iskele_kiralik-isyeri": {
+      "name": "Iskele - Kiralik Isyeri",
+      "city": "iskele",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3644702434539795
+    },
+    "iskele_kiralik-gunluk": {
+      "name": "Iskele - Kiralik Gunluk",
+      "city": "iskele",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4300079345703125
+    },
+    "lefkosa_satilik-daire": {
+      "name": "Lefkosa - Satilik Daire",
+      "city": "lefkosa",
+      "category": "satilik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2727181911468506
+    },
+    "lefkosa_satilik-villa": {
+      "name": "Lefkosa - Satilik Villa",
+      "city": "lefkosa",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2422311305999756
+    },
+    "lefkosa_satilik-ev": {
+      "name": "Lefkosa - Satilik Ev",
+      "city": "lefkosa",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5897622108459473
+    },
+    "lefkosa_satilik-arsa": {
+      "name": "Lefkosa - Satilik Arsa",
+      "city": "lefkosa",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2106797695159912
+    },
+    "lefkosa_satilik-isyeri": {
+      "name": "Lefkosa - Satilik Isyeri",
+      "city": "lefkosa",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3133327960968018
+    },
+    "lefkosa_satilik-proje": {
+      "name": "Lefkosa - Satilik Proje",
+      "city": "lefkosa",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2380142211914062
+    },
+    "lefkosa_kiralik-daire": {
+      "name": "Lefkosa - Kiralik Daire",
+      "city": "lefkosa",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3174335956573486
+    },
+    "lefkosa_kiralik-villa": {
+      "name": "Lefkosa - Kiralik Villa",
+      "city": "lefkosa",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.6714322566986084
+    },
+    "lefkosa_kiralik-ev": {
+      "name": "Lefkosa - Kiralik Ev",
+      "city": "lefkosa",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4884541034698486
+    },
+    "lefkosa_kiralik-isyeri": {
+      "name": "Lefkosa - Kiralik Isyeri",
+      "city": "lefkosa",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.6271014213562012
+    },
+    "lefkosa_kiralik-gunluk": {
+      "name": "Lefkosa - Kiralik Gunluk",
+      "city": "lefkosa",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3903257846832275
+    },
+    "gazimagusa_satilik-daire": {
+      "name": "Gazimagusa - Satilik Daire",
+      "city": "gazimagusa",
+      "category": "satilik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3882665634155273
+    },
+    "gazimagusa_satilik-villa": {
+      "name": "Gazimagusa - Satilik Villa",
+      "city": "gazimagusa",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2467212677001953
+    },
+    "gazimagusa_satilik-ev": {
+      "name": "Gazimagusa - Satilik Ev",
+      "city": "gazimagusa",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2781634330749512
+    },
+    "gazimagusa_satilik-arsa": {
+      "name": "Gazimagusa - Satilik Arsa",
+      "city": "gazimagusa",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.7509431838989258
+    },
+    "gazimagusa_satilik-isyeri": {
+      "name": "Gazimagusa - Satilik Isyeri",
+      "city": "gazimagusa",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5225470066070557
+    },
+    "gazimagusa_satilik-proje": {
+      "name": "Gazimagusa - Satilik Proje",
+      "city": "gazimagusa",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.726435661315918
+    },
+    "gazimagusa_kiralik-daire": {
+      "name": "Gazimagusa - Kiralik Daire",
+      "city": "gazimagusa",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3202266693115234
+    },
+    "gazimagusa_kiralik-villa": {
+      "name": "Gazimagusa - Kiralik Villa",
+      "city": "gazimagusa",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.428541660308838
+    },
+    "gazimagusa_kiralik-ev": {
+      "name": "Gazimagusa - Kiralik Ev",
+      "city": "gazimagusa",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.192946195602417
+    },
+    "gazimagusa_kiralik-isyeri": {
+      "name": "Gazimagusa - Kiralik Isyeri",
+      "city": "gazimagusa",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.41804838180542
+    },
+    "gazimagusa_kiralik-gunluk": {
+      "name": "Gazimagusa - Kiralik Gunluk",
+      "city": "gazimagusa",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 2.4686572551727295
+    },
+    "guzelyurt_satilik-daire": {
+      "name": "Guzelyurt - Satilik Daire",
+      "city": "guzelyurt",
+      "category": "satilik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.6940107345581055
+    },
+    "guzelyurt_satilik-villa": {
+      "name": "Guzelyurt - Satilik Villa",
+      "city": "guzelyurt",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.530088186264038
+    },
+    "guzelyurt_satilik-ev": {
+      "name": "Guzelyurt - Satilik Ev",
+      "city": "guzelyurt",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.379441738128662
+    },
+    "guzelyurt_satilik-arsa": {
+      "name": "Guzelyurt - Satilik Arsa",
+      "city": "guzelyurt",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5049901008605957
+    },
+    "guzelyurt_satilik-isyeri": {
+      "name": "Guzelyurt - Satilik Isyeri",
+      "city": "guzelyurt",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4549551010131836
+    },
+    "guzelyurt_satilik-proje": {
+      "name": "Guzelyurt - Satilik Proje",
+      "city": "guzelyurt",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.5537710189819336
+    },
+    "guzelyurt_kiralik-daire": {
+      "name": "Guzelyurt - Kiralik Daire",
+      "city": "guzelyurt",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2107908725738525
+    },
+    "guzelyurt_kiralik-villa": {
+      "name": "Guzelyurt - Kiralik Villa",
+      "city": "guzelyurt",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2328169345855713
+    },
+    "guzelyurt_kiralik-ev": {
+      "name": "Guzelyurt - Kiralik Ev",
+      "city": "guzelyurt",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2505180835723877
+    },
+    "guzelyurt_kiralik-isyeri": {
+      "name": "Guzelyurt - Kiralik Isyeri",
+      "city": "guzelyurt",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2847084999084473
+    },
+    "guzelyurt_kiralik-gunluk": {
+      "name": "Guzelyurt - Kiralik Gunluk",
+      "city": "guzelyurt",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3390429019927979
+    },
+    "lefke_satilik-daire": {
+      "name": "Lefke - Satilik Daire",
+      "city": "lefke",
+      "category": "satilik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.1887340545654297
+    },
+    "lefke_satilik-villa": {
+      "name": "Lefke - Satilik Villa",
+      "city": "lefke",
+      "category": "satilik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.513587236404419
+    },
+    "lefke_satilik-ev": {
+      "name": "Lefke - Satilik Ev",
+      "city": "lefke",
+      "category": "satilik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3630716800689697
+    },
+    "lefke_satilik-arsa": {
+      "name": "Lefke - Satilik Arsa",
+      "city": "lefke",
+      "category": "satilik-arsa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2882776260375977
+    },
+    "lefke_satilik-isyeri": {
+      "name": "Lefke - Satilik Isyeri",
+      "city": "lefke",
+      "category": "satilik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2374281883239746
+    },
+    "lefke_satilik-proje": {
+      "name": "Lefke - Satilik Proje",
+      "city": "lefke",
+      "category": "satilik-proje",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3728396892547607
+    },
+    "lefke_kiralik-daire": {
+      "name": "Lefke - Kiralik Daire",
+      "city": "lefke",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.3023602962493896
+    },
+    "lefke_kiralik-villa": {
+      "name": "Lefke - Kiralik Villa",
+      "city": "lefke",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.4171226024627686
+    },
+    "lefke_kiralik-ev": {
+      "name": "Lefke - Kiralik Ev",
+      "city": "lefke",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.524096965789795
+    },
+    "lefke_kiralik-isyeri": {
+      "name": "Lefke - Kiralik Isyeri",
+      "city": "lefke",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.218824863433838
+    },
+    "lefke_kiralik-gunluk": {
+      "name": "Lefke - Kiralik Gunluk",
+      "city": "lefke",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "[Errno 22] Invalid argument",
+      "elapsed": 1.2649543285369873
+    }
+  },
+  "state": {
+    "completed": [
+      {
+        "city": "girne",
+        "category": "satilik-daire",
+        "name": "Girne - Satilik Daire"
+      }
+    ],
+    "failed": [
+      {
+        "city": "girne",
+        "category": "satilik-villa",
+        "name": "Girne - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "satilik-ev",
+        "name": "Girne - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "satilik-arsa",
+        "name": "Girne - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "satilik-isyeri",
+        "name": "Girne - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "satilik-proje",
+        "name": "Girne - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-daire",
+        "name": "Girne - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-villa",
+        "name": "Girne - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-ev",
+        "name": "Girne - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-isyeri",
+        "name": "Girne - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-gunluk",
+        "name": "Girne - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-daire",
+        "name": "Iskele - Satilik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-villa",
+        "name": "Iskele - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-ev",
+        "name": "Iskele - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-arsa",
+        "name": "Iskele - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-isyeri",
+        "name": "Iskele - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "satilik-proje",
+        "name": "Iskele - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-daire",
+        "name": "Iskele - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-villa",
+        "name": "Iskele - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-ev",
+        "name": "Iskele - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-isyeri",
+        "name": "Iskele - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-gunluk",
+        "name": "Iskele - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-daire",
+        "name": "Lefkosa - Satilik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-villa",
+        "name": "Lefkosa - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-ev",
+        "name": "Lefkosa - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-arsa",
+        "name": "Lefkosa - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-isyeri",
+        "name": "Lefkosa - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "satilik-proje",
+        "name": "Lefkosa - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-daire",
+        "name": "Lefkosa - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-villa",
+        "name": "Lefkosa - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-ev",
+        "name": "Lefkosa - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-isyeri",
+        "name": "Lefkosa - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-gunluk",
+        "name": "Lefkosa - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-daire",
+        "name": "Gazimagusa - Satilik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-villa",
+        "name": "Gazimagusa - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-ev",
+        "name": "Gazimagusa - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-arsa",
+        "name": "Gazimagusa - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-isyeri",
+        "name": "Gazimagusa - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "satilik-proje",
+        "name": "Gazimagusa - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-daire",
+        "name": "Gazimagusa - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-villa",
+        "name": "Gazimagusa - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-ev",
+        "name": "Gazimagusa - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-isyeri",
+        "name": "Gazimagusa - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-gunluk",
+        "name": "Gazimagusa - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-daire",
+        "name": "Guzelyurt - Satilik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-villa",
+        "name": "Guzelyurt - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-ev",
+        "name": "Guzelyurt - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-arsa",
+        "name": "Guzelyurt - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-isyeri",
+        "name": "Guzelyurt - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "satilik-proje",
+        "name": "Guzelyurt - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-daire",
+        "name": "Guzelyurt - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-villa",
+        "name": "Guzelyurt - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-ev",
+        "name": "Guzelyurt - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-isyeri",
+        "name": "Guzelyurt - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-gunluk",
+        "name": "Guzelyurt - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-daire",
+        "name": "Lefke - Satilik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-villa",
+        "name": "Lefke - Satilik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-ev",
+        "name": "Lefke - Satilik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-arsa",
+        "name": "Lefke - Satilik Arsa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-isyeri",
+        "name": "Lefke - Satilik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "satilik-proje",
+        "name": "Lefke - Satilik Proje",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-daire",
+        "name": "Lefke - Kiralik Daire",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-villa",
+        "name": "Lefke - Kiralik Villa",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-ev",
+        "name": "Lefke - Kiralik Ev",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-isyeri",
+        "name": "Lefke - Kiralik Isyeri",
+        "error": "[Errno 22] Invalid argument"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-gunluk",
+        "name": "Lefke - Kiralik Gunluk",
+        "error": "[Errno 22] Invalid argument"
+      }
+    ],
+    "current": null,
+    "started_at": "2025-11-08T06:13:27.248893",
+    "last_updated": "2025-11-08T17:27:28.231983"
+  }
+}

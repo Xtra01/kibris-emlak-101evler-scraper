@@ -19,7 +19,6 @@ __license__ = "MIT"
 
 from .core import scraper, parser, config
 from .reports import excel, markdown
-from .utils import file_ops, logger
 
 __all__ = [
     "scraper",
@@ -27,6 +26,4 @@ __all__ = [
     "config",
     "excel",
     "markdown",
-    "file_ops",
-    "logger",
 ]

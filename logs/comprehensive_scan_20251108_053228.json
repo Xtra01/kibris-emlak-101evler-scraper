@@ -1,0 +1,490 @@
+{
+  "timestamp": "2025-11-08T05:35:56.869932",
+  "total_configs": 30,
+  "success": 0,
+  "failed": 30,
+  "total_elapsed_seconds": 208.12773847579956,
+  "cities": [
+    "girne",
+    "iskele",
+    "lefkosa",
+    "gazimagusa",
+    "guzelyurt",
+    "lefke"
+  ],
+  "sale_categories": [
+    "satilik-daire",
+    "satilik-villa",
+    "satilik-ev",
+    "satilik-arsa",
+    "satilik-isyeri",
+    "satilik-proje"
+  ],
+  "rent_categories": [
+    "kiralik-daire",
+    "kiralik-villa",
+    "kiralik-ev",
+    "kiralik-isyeri",
+    "kiralik-gunluk"
+  ],
+  "results": {
+    "girne_kiralik-daire": {
+      "name": "Girne - Kiralik Daire",
+      "city": "girne",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 5.9566497802734375,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "girne_kiralik-villa": {
+      "name": "Girne - Kiralik Villa",
+      "city": "girne",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.425100803375244,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "girne_kiralik-ev": {
+      "name": "Girne - Kiralik Ev",
+      "city": "girne",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.700772285461426,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "girne_kiralik-isyeri": {
+      "name": "Girne - Kiralik Isyeri",
+      "city": "girne",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.315833806991577,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "girne_kiralik-gunluk": {
+      "name": "Girne - Kiralik Gunluk",
+      "city": "girne",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.7084591388702393,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "iskele_kiralik-daire": {
+      "name": "Iskele - Kiralik Daire",
+      "city": "iskele",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.6016526222229004,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "iskele_kiralik-villa": {
+      "name": "Iskele - Kiralik Villa",
+      "city": "iskele",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.7233424186706543,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "iskele_kiralik-ev": {
+      "name": "Iskele - Kiralik Ev",
+      "city": "iskele",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.4661996364593506,
+      "error": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 189, in _run_module_as_main\n  File \"<frozen runpy>\", line 112, in _get_module_details\n  File \"E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\__init__.py\", line 22, in <module>\n    from .utils import file_ops, logger\nImportError: cannot import name 'file_ops' from 'emlak_scraper.utils' (E:\\Programming\\emlak\\ardakaraosmanoglu\\src\\emlak_scraper\\utils\\__init__.py)\n"
+    },
+    "iskele_kiralik-isyeri": {
+      "name": "Iskele - Kiralik Isyeri",
+      "city": "iskele",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.8946011066436768,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "iskele_kiralik-gunluk": {
+      "name": "Iskele - Kiralik Gunluk",
+      "city": "iskele",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.2532997131347656,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "lefkosa_kiralik-daire": {
+      "name": "Lefkosa - Kiralik Daire",
+      "city": "lefkosa",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.709383249282837,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "lefkosa_kiralik-villa": {
+      "name": "Lefkosa - Kiralik Villa",
+      "city": "lefkosa",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.5178463459014893,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "lefkosa_kiralik-ev": {
+      "name": "Lefkosa - Kiralik Ev",
+      "city": "lefkosa",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.5019752979278564,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "lefkosa_kiralik-isyeri": {
+      "name": "Lefkosa - Kiralik Isyeri",
+      "city": "lefkosa",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.223952531814575,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "lefkosa_kiralik-gunluk": {
+      "name": "Lefkosa - Kiralik Gunluk",
+      "city": "lefkosa",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.135580539703369,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "gazimagusa_kiralik-daire": {
+      "name": "Gazimagusa - Kiralik Daire",
+      "city": "gazimagusa",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.246539831161499,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "gazimagusa_kiralik-villa": {
+      "name": "Gazimagusa - Kiralik Villa",
+      "city": "gazimagusa",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.228081226348877,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "gazimagusa_kiralik-ev": {
+      "name": "Gazimagusa - Kiralik Ev",
+      "city": "gazimagusa",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 2.931931972503662,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "gazimagusa_kiralik-isyeri": {
+      "name": "Gazimagusa - Kiralik Isyeri",
+      "city": "gazimagusa",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.7228891849517822,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "gazimagusa_kiralik-gunluk": {
+      "name": "Gazimagusa - Kiralik Gunluk",
+      "city": "gazimagusa",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.491802930831909,
+      "error": "                                               \\u2551\n\\u2551 <3 Playwright Team                                         \\u2551\n\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\n"
+    },
+    "guzelyurt_kiralik-daire": {
+      "name": "Guzelyurt - Kiralik Daire",
+      "city": "guzelyurt",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 21.073089838027954,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "guzelyurt_kiralik-villa": {
+      "name": "Guzelyurt - Kiralik Villa",
+      "city": "guzelyurt",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 4.941970109939575,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "guzelyurt_kiralik-ev": {
+      "name": "Guzelyurt - Kiralik Ev",
+      "city": "guzelyurt",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.675151824951172,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "guzelyurt_kiralik-isyeri": {
+      "name": "Guzelyurt - Kiralik Isyeri",
+      "city": "guzelyurt",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 4.214581727981567,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "guzelyurt_kiralik-gunluk": {
+      "name": "Guzelyurt - Kiralik Gunluk",
+      "city": "guzelyurt",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.7501955032348633,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "lefke_kiralik-daire": {
+      "name": "Lefke - Kiralik Daire",
+      "city": "lefke",
+      "category": "kiralik-daire",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.5740115642547607,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "lefke_kiralik-villa": {
+      "name": "Lefke - Kiralik Villa",
+      "city": "lefke",
+      "category": "kiralik-villa",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.6090593338012695,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "lefke_kiralik-ev": {
+      "name": "Lefke - Kiralik Ev",
+      "city": "lefke",
+      "category": "kiralik-ev",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.802767515182495,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "lefke_kiralik-isyeri": {
+      "name": "Lefke - Kiralik Isyeri",
+      "city": "lefke",
+      "category": "kiralik-isyeri",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.7345004081726074,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    },
+    "lefke_kiralik-gunluk": {
+      "name": "Lefke - Kiralik Gunluk",
+      "city": "lefke",
+      "category": "kiralik-gunluk",
+      "status": "failed",
+      "message": "Exit code: 1",
+      "elapsed": 3.6322689056396484,
+      "error": " ~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\Ekrem\\AppData\\Roaming\\Python\\Python313\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n    ~~~~~~~~~~^^^^^^\n  File \"C:\\Python313\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 2: character maps to <undefined>\n"
+    }
+  },
+  "state": {
+    "completed": [],
+    "failed": [
+      {
+        "city": "girne",
+        "category": "kiralik-daire",
+        "name": "Girne - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-villa",
+        "name": "Girne - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-ev",
+        "name": "Girne - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-isyeri",
+        "name": "Girne - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-gunluk",
+        "name": "Girne - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-daire",
+        "name": "Iskele - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-villa",
+        "name": "Iskele - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-ev",
+        "name": "Iskele - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-isyeri",
+        "name": "Iskele - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-gunluk",
+        "name": "Iskele - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-daire",
+        "name": "Lefkosa - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-villa",
+        "name": "Lefkosa - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-ev",
+        "name": "Lefkosa - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-isyeri",
+        "name": "Lefkosa - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-gunluk",
+        "name": "Lefkosa - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-daire",
+        "name": "Gazimagusa - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-villa",
+        "name": "Gazimagusa - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-ev",
+        "name": "Gazimagusa - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-isyeri",
+        "name": "Gazimagusa - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-gunluk",
+        "name": "Gazimagusa - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-daire",
+        "name": "Guzelyurt - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-villa",
+        "name": "Guzelyurt - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-ev",
+        "name": "Guzelyurt - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-isyeri",
+        "name": "Guzelyurt - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-gunluk",
+        "name": "Guzelyurt - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-daire",
+        "name": "Lefke - Kiralik Daire",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-villa",
+        "name": "Lefke - Kiralik Villa",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-ev",
+        "name": "Lefke - Kiralik Ev",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-isyeri",
+        "name": "Lefke - Kiralik Isyeri",
+        "error": "Exit code: 1"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-gunluk",
+        "name": "Lefke - Kiralik Gunluk",
+        "error": "Exit code: 1"
+      }
+    ],
+    "current": null,
+    "started_at": "2025-11-08T05:32:28.741100",
+    "last_updated": "2025-11-08T05:35:56.865878"
+  }
+}

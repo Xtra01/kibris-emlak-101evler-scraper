@@ -2,9 +2,28 @@ import asyncio
 import os
 import re
 from urllib.parse import urljoin, urlparse
+
+# ============================================================================
+# CRITICAL FIX: Windows Console Encoding for Rich Library
+# ============================================================================
+# crawl4ai uses Rich library with Unicode characters (→, ╔, ║, emojis)
+# These crash on Windows PowerShell with cp1252 encoding
+# MUST set UTF-8 encoding BEFORE importing crawl4ai
+import sys
+import io
+
+if sys.platform == 'win32':
+    # Force UTF-8 encoding for stdout/stderr on Windows
+    if sys.stdout.encoding != 'utf-8':
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    if sys.stderr.encoding != 'utf-8':
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+    # Also set environment variable for subprocess consistency
+    os.environ['PYTHONIOENCODING'] = 'utf-8'
+# ============================================================================
+
 from crawl4ai import AsyncWebCrawler
 from bs4 import BeautifulSoup
-import sys
 import time  # cooldown için
 import random
 from emlak_scraper.core import config
@@ -153,6 +172,22 @@ def check_blocked_html(html):
             return True
     return False
 
+def check_404_html(html):
+    """Check if HTML is a 404 Not Found page"""
+    if not html:
+        return False
+    # Check for common 404 indicators
+    indicators_404 = [
+        '404 Not Found',
+        '"404 Not Found"',
+        'Oops! An Error Occurred',
+        'The server returned a "404',
+    ]
+    for indicator in indicators_404:
+        if indicator in html:
+            return True
+    return False
+
 def handle_access_blocked():
     """Erişim engellendiğinde yapılacak işlemler: 3 dakika bekle ve tekrar dene"""
     cooldown_minutes = 3
@@ -270,18 +305,23 @@ async def main():
     # base_search_url konfigürasyondan alınır
     base_search_url = config.get_base_search_url()
     output_dir = config.OUTPUT_DIR
-    pages_dir = config.PAGES_DIR
+    
+    # CRITICAL FIX: Use config-specific pages directory
+    pages_dir = config.get_pages_dir()
+    
     all_listing_links = set()
 
     # Create pages directory if it doesn't exist
     if not os.path.exists(pages_dir):
         os.makedirs(pages_dir)
 
-    # Get existing listing IDs before starting
-    existing_listing_ids = get_existing_listing_ids(output_dir)
-    print(f"Will skip {len(existing_listing_ids)} listings that are already saved.")
+    # DEVRE DIŞI: Skip logic kaldırıldı - Comprehensive scan için tüm ilanlar toplanacak
+    # Her config farklı şehir/kategori içerdiği için aynı ID farklı yerlerde olabilir
+    existing_listing_ids = set()  # Boş set - hiçbir ilan skip edilmeyecek
+    print(f"[COMPREHENSIVE MODE] Skip logic disabled - will fetch all listings")
+    print(f"[CONFIG] Using pages directory: {pages_dir}")
 
-    # Get existing search pages before starting
+    # CRITICAL FIX: Each config has its own pages folder, so this is now safe
     existing_search_pages = get_existing_search_pages(pages_dir)
     print(f"Will skip {len(existing_search_pages)} search pages that are already saved.")
 
@@ -377,6 +417,13 @@ async def main():
                     if not html:
                         print(f"Sayfa {page_num} tekrar çekilemedi. Sonraki sayfaya geçiliyor.")
                         continue
+                
+                # Check for 404 - category might not exist
+                if check_404_html(html):
+                    print(f"⚠️  CATEGORY NOT FOUND (404): {config.CITY}/{config.PROPERTY_TYPE}")
+                    print(f"This category doesn't exist on the site. Skipping...")
+                    return  # Exit early - no point continuing
+                
                 base_for_relative = search_page_url.split('?')[0]
                 links_on_page = await extract_listing_links(html, base_for_relative)
                 all_listing_links.update(links_on_page)

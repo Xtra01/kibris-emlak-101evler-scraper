@@ -1,0 +1,460 @@
+{
+  "timestamp": "2025-11-08T05:56:11.793258",
+  "total_configs": 30,
+  "success": 30,
+  "failed": 0,
+  "total_elapsed_seconds": 488.6339497566223,
+  "cities": [
+    "girne",
+    "iskele",
+    "lefkosa",
+    "gazimagusa",
+    "guzelyurt",
+    "lefke"
+  ],
+  "sale_categories": [
+    "satilik-daire",
+    "satilik-villa",
+    "satilik-ev",
+    "satilik-arsa",
+    "satilik-isyeri",
+    "satilik-proje"
+  ],
+  "rent_categories": [
+    "kiralik-daire",
+    "kiralik-villa",
+    "kiralik-ev",
+    "kiralik-isyeri",
+    "kiralik-gunluk"
+  ],
+  "results": {
+    "girne_kiralik-daire": {
+      "name": "Girne - Kiralik Daire",
+      "city": "girne",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.318532705307007,
+      "output_preview": "Found 2708 existing listing files in 'data/raw/listings'\nWill skip 2708 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "girne_kiralik-villa": {
+      "name": "Girne - Kiralik Villa",
+      "city": "girne",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.77836799621582,
+      "output_preview": "Found 2708 existing listing files in 'data/raw/listings'\nWill skip 2708 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "girne_kiralik-ev": {
+      "name": "Girne - Kiralik Ev",
+      "city": "girne",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.474036693572998,
+      "output_preview": "Found 2708 existing listing files in 'data/raw/listings'\nWill skip 2708 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "girne_kiralik-isyeri": {
+      "name": "Girne - Kiralik Isyeri",
+      "city": "girne",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.088512659072876,
+      "output_preview": "Found 2708 existing listing files in 'data/raw/listings'\nWill skip 2708 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "girne_kiralik-gunluk": {
+      "name": "Girne - Kiralik Gunluk",
+      "city": "girne",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.38000202178955,
+      "output_preview": "Found 2708 existing listing files in 'data/raw/listings'\nWill skip 2708 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "iskele_kiralik-daire": {
+      "name": "Iskele - Kiralik Daire",
+      "city": "iskele",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.539112329483032,
+      "output_preview": "Found 2710 existing listing files in 'data/raw/listings'\nWill skip 2710 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "iskele_kiralik-villa": {
+      "name": "Iskele - Kiralik Villa",
+      "city": "iskele",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.194781064987183,
+      "output_preview": "Found 2710 existing listing files in 'data/raw/listings'\nWill skip 2710 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "iskele_kiralik-ev": {
+      "name": "Iskele - Kiralik Ev",
+      "city": "iskele",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.698572874069214,
+      "output_preview": "Found 2710 existing listing files in 'data/raw/listings'\nWill skip 2710 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "iskele_kiralik-isyeri": {
+      "name": "Iskele - Kiralik Isyeri",
+      "city": "iskele",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.666534423828125,
+      "output_preview": "Found 2720 existing listing files in 'data/raw/listings'\nWill skip 2720 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "iskele_kiralik-gunluk": {
+      "name": "Iskele - Kiralik Gunluk",
+      "city": "iskele",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.47368836402893,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefkosa_kiralik-daire": {
+      "name": "Lefkosa - Kiralik Daire",
+      "city": "lefkosa",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.356546640396118,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefkosa_kiralik-villa": {
+      "name": "Lefkosa - Kiralik Villa",
+      "city": "lefkosa",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.234041929244995,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefkosa_kiralik-ev": {
+      "name": "Lefkosa - Kiralik Ev",
+      "city": "lefkosa",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.170465230941772,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefkosa_kiralik-isyeri": {
+      "name": "Lefkosa - Kiralik Isyeri",
+      "city": "lefkosa",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.851674795150757,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefkosa_kiralik-gunluk": {
+      "name": "Lefkosa - Kiralik Gunluk",
+      "city": "lefkosa",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 11.966460466384888,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "gazimagusa_kiralik-daire": {
+      "name": "Gazimagusa - Kiralik Daire",
+      "city": "gazimagusa",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.08248257637024,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "gazimagusa_kiralik-villa": {
+      "name": "Gazimagusa - Kiralik Villa",
+      "city": "gazimagusa",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.926471710205078,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "gazimagusa_kiralik-ev": {
+      "name": "Gazimagusa - Kiralik Ev",
+      "city": "gazimagusa",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.537854671478271,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "gazimagusa_kiralik-isyeri": {
+      "name": "Gazimagusa - Kiralik Isyeri",
+      "city": "gazimagusa",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.863341569900513,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "gazimagusa_kiralik-gunluk": {
+      "name": "Gazimagusa - Kiralik Gunluk",
+      "city": "gazimagusa",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.115792751312256,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "guzelyurt_kiralik-daire": {
+      "name": "Guzelyurt - Kiralik Daire",
+      "city": "guzelyurt",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.356533765792847,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "guzelyurt_kiralik-villa": {
+      "name": "Guzelyurt - Kiralik Villa",
+      "city": "guzelyurt",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.170161962509155,
+      "output_preview": "Found 2730 existing listing files in 'data/raw/listings'\nWill skip 2730 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "guzelyurt_kiralik-ev": {
+      "name": "Guzelyurt - Kiralik Ev",
+      "city": "guzelyurt",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.24091911315918,
+      "output_preview": "Found 2742 existing listing files in 'data/raw/listings'\nWill skip 2742 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "guzelyurt_kiralik-isyeri": {
+      "name": "Guzelyurt - Kiralik Isyeri",
+      "city": "guzelyurt",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.749633312225342,
+      "output_preview": "Found 2745 existing listing files in 'data/raw/listings'\nWill skip 2745 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "guzelyurt_kiralik-gunluk": {
+      "name": "Guzelyurt - Kiralik Gunluk",
+      "city": "guzelyurt",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 11.860697984695435,
+      "output_preview": "Found 2745 existing listing files in 'data/raw/listings'\nWill skip 2745 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefke_kiralik-daire": {
+      "name": "Lefke - Kiralik Daire",
+      "city": "lefke",
+      "category": "kiralik-daire",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 13.809378623962402,
+      "output_preview": "Found 2745 existing listing files in 'data/raw/listings'\nWill skip 2745 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefke_kiralik-villa": {
+      "name": "Lefke - Kiralik Villa",
+      "city": "lefke",
+      "category": "kiralik-villa",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.26118016242981,
+      "output_preview": "Found 2746 existing listing files in 'data/raw/listings'\nWill skip 2746 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefke_kiralik-ev": {
+      "name": "Lefke - Kiralik Ev",
+      "city": "lefke",
+      "category": "kiralik-ev",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.533830642700195,
+      "output_preview": "Found 2746 existing listing files in 'data/raw/listings'\nWill skip 2746 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefke_kiralik-isyeri": {
+      "name": "Lefke - Kiralik Isyeri",
+      "city": "lefke",
+      "category": "kiralik-isyeri",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 14.39537501335144,
+      "output_preview": "Found 2746 existing listing files in 'data/raw/listings'\nWill skip 2746 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    },
+    "lefke_kiralik-gunluk": {
+      "name": "Lefke - Kiralik Gunluk",
+      "city": "lefke",
+      "category": "kiralik-gunluk",
+      "status": "success",
+      "message": "Completed",
+      "elapsed": 12.213463306427002,
+      "output_preview": "Found 2746 existing listing files in 'data/raw/listings'\nWill skip 2746 listings that are already saved.\nFound 30 existing search pages in 'data/raw/pages'\nWill skip 30 search pages that are already s"
+    }
+  },
+  "state": {
+    "completed": [
+      {
+        "city": "girne",
+        "category": "kiralik-daire",
+        "name": "Girne - Kiralik Daire"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-villa",
+        "name": "Girne - Kiralik Villa"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-ev",
+        "name": "Girne - Kiralik Ev"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-isyeri",
+        "name": "Girne - Kiralik Isyeri"
+      },
+      {
+        "city": "girne",
+        "category": "kiralik-gunluk",
+        "name": "Girne - Kiralik Gunluk"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-daire",
+        "name": "Iskele - Kiralik Daire"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-villa",
+        "name": "Iskele - Kiralik Villa"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-ev",
+        "name": "Iskele - Kiralik Ev"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-isyeri",
+        "name": "Iskele - Kiralik Isyeri"
+      },
+      {
+        "city": "iskele",
+        "category": "kiralik-gunluk",
+        "name": "Iskele - Kiralik Gunluk"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-daire",
+        "name": "Lefkosa - Kiralik Daire"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-villa",
+        "name": "Lefkosa - Kiralik Villa"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-ev",
+        "name": "Lefkosa - Kiralik Ev"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-isyeri",
+        "name": "Lefkosa - Kiralik Isyeri"
+      },
+      {
+        "city": "lefkosa",
+        "category": "kiralik-gunluk",
+        "name": "Lefkosa - Kiralik Gunluk"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-daire",
+        "name": "Gazimagusa - Kiralik Daire"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-villa",
+        "name": "Gazimagusa - Kiralik Villa"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-ev",
+        "name": "Gazimagusa - Kiralik Ev"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-isyeri",
+        "name": "Gazimagusa - Kiralik Isyeri"
+      },
+      {
+        "city": "gazimagusa",
+        "category": "kiralik-gunluk",
+        "name": "Gazimagusa - Kiralik Gunluk"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-daire",
+        "name": "Guzelyurt - Kiralik Daire"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-villa",
+        "name": "Guzelyurt - Kiralik Villa"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-ev",
+        "name": "Guzelyurt - Kiralik Ev"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-isyeri",
+        "name": "Guzelyurt - Kiralik Isyeri"
+      },
+      {
+        "city": "guzelyurt",
+        "category": "kiralik-gunluk",
+        "name": "Guzelyurt - Kiralik Gunluk"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-daire",
+        "name": "Lefke - Kiralik Daire"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-villa",
+        "name": "Lefke - Kiralik Villa"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-ev",
+        "name": "Lefke - Kiralik Ev"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-isyeri",
+        "name": "Lefke - Kiralik Isyeri"
+      },
+      {
+        "city": "lefke",
+        "category": "kiralik-gunluk",
+        "name": "Lefke - Kiralik Gunluk"
+      }
+    ],
+    "failed": [],
+    "current": null,
+    "started_at": "2025-11-08T05:48:03.157965",
+    "last_updated": "2025-11-08T05:56:11.789144"
+  }
+}
