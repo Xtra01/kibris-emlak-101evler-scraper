@@ -27,10 +27,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 async def test_single_config():
-    """Test with small config: Girne - Kiralik Gunluk (usually ~20-30 listings)"""
+    """Test with small config: Girne - Satilik Villa (usually ~30-40 listings)"""
     
     city = "girne"
-    category = "kiralik-gunluk"
+    category = "satilik-villa"
     
     logger.info("="*70)
     logger.info(f"🧪 QUICK TEST: {city.upper()} - {category.upper()}")
