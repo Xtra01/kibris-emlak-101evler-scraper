@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: emlak-scraper-101evler
-    restart: unless-stopped
-    network_mode: "bridge"  # Use default bridge network for internet access
+    restart: "no"  # CHANGED: Don't auto-restart - manual control only
+    network_mode: "bridge"
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
@@ -17,9 +17,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2.0'
-          memory: 4G
+          cpus: '1.5'      # REDUCED: 1.5 cores max (37.5% of Pi5)
+          memory: 3G       # REDUCED: 3GB max (37.5% of 8GB)
         reservations:
-          cpus: '1.0'
-          memory: 2G
-    command: python scripts/scan/comprehensive_full_scan.py
+          cpus: '0.25'     # Minimum CPU
+          memory: 512M     # Minimum RAM
+    # CHANGED: No automatic command - start manually or via Telegram
+    command: tail -f /dev/null  # Keep container alive but idle

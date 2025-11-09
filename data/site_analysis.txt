@@ -1,0 +1,276 @@
+================================================================================
+DEEP SITE ANALYSIS SUMMARY
+================================================================================
+
+Scan Date: 2025-11-09T05:36:41.489255
+
+OVERVIEW:
+  Total Configs: 72
+  Working: 0
+  Failed: 72
+
+EXPECTED TOTALS:
+  Listings: 0
+  Pages: 0
+  Est. Time: 0.0 min
+
+================================================================================
+DETAILED BREAKDOWN BY CONFIG:
+================================================================================
+
+❌ gazimagusa/kiralik-daire
+   Status: 404
+
+❌ gazimagusa/kiralik-ev
+   Status: 404
+
+❌ gazimagusa/kiralik-gunluk
+   Status: 404
+
+❌ gazimagusa/kiralik-isyeri
+   Status: 404
+
+❌ gazimagusa/kiralik-villa
+   Status: 404
+
+❌ gazimagusa/satilik-arazi
+   Status: 404
+
+❌ gazimagusa/satilik-arsa
+   Status: 404
+
+❌ gazimagusa/satilik-daire
+   Status: 404
+
+❌ gazimagusa/satilik-ev
+   Status: 404
+
+❌ gazimagusa/satilik-isyeri
+   Status: 404
+
+❌ gazimagusa/satilik-proje
+   Status: 404
+
+❌ gazimagusa/satilik-villa
+   Status: 404
+
+⚠️ girne/kiralik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ girne/kiralik-ev
+   Status: 404
+
+❌ girne/kiralik-gunluk
+   Status: 404
+
+⚠️ girne/kiralik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+⚠️ girne/kiralik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ girne/satilik-arazi
+   Status: failed
+   Error: Fetch failed
+
+⚠️ girne/satilik-arsa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ girne/satilik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ girne/satilik-ev
+   Status: 404
+
+⚠️ girne/satilik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+❌ girne/satilik-proje
+   Status: 404
+
+⚠️ girne/satilik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ guzelyurt/kiralik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ guzelyurt/kiralik-ev
+   Status: 404
+
+❌ guzelyurt/kiralik-gunluk
+   Status: 404
+
+⚠️ guzelyurt/kiralik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+⚠️ guzelyurt/kiralik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ guzelyurt/satilik-arazi
+   Status: failed
+   Error: Fetch failed
+
+⚠️ guzelyurt/satilik-arsa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ guzelyurt/satilik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ guzelyurt/satilik-ev
+   Status: 404
+
+⚠️ guzelyurt/satilik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+❌ guzelyurt/satilik-proje
+   Status: 404
+
+⚠️ guzelyurt/satilik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ iskele/kiralik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ iskele/kiralik-ev
+   Status: 404
+
+❌ iskele/kiralik-gunluk
+   Status: 404
+
+⚠️ iskele/kiralik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+⚠️ iskele/kiralik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ iskele/satilik-arazi
+   Status: failed
+   Error: Fetch failed
+
+⚠️ iskele/satilik-arsa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ iskele/satilik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ iskele/satilik-ev
+   Status: 404
+
+⚠️ iskele/satilik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+❌ iskele/satilik-proje
+   Status: 404
+
+⚠️ iskele/satilik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefke/kiralik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ lefke/kiralik-ev
+   Status: 404
+
+❌ lefke/kiralik-gunluk
+   Status: 404
+
+⚠️ lefke/kiralik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefke/kiralik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefke/satilik-arazi
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefke/satilik-arsa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefke/satilik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ lefke/satilik-ev
+   Status: 404
+
+⚠️ lefke/satilik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+❌ lefke/satilik-proje
+   Status: 404
+
+⚠️ lefke/satilik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefkosa/kiralik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ lefkosa/kiralik-ev
+   Status: 404
+
+❌ lefkosa/kiralik-gunluk
+   Status: 404
+
+⚠️ lefkosa/kiralik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefkosa/kiralik-villa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefkosa/satilik-arazi
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefkosa/satilik-arsa
+   Status: failed
+   Error: Fetch failed
+
+⚠️ lefkosa/satilik-daire
+   Status: failed
+   Error: Fetch failed
+
+❌ lefkosa/satilik-ev
+   Status: 404
+
+⚠️ lefkosa/satilik-isyeri
+   Status: failed
+   Error: Fetch failed
+
+❌ lefkosa/satilik-proje
+   Status: 404
+
+⚠️ lefkosa/satilik-villa
+   Status: failed
+   Error: Fetch failed
+
