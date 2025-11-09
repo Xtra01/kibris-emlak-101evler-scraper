@@ -11,6 +11,40 @@ CITY = "gazimagusa"  # Auto-updated by comprehensive_full_scan.py
 # Emlak türü seçimi
 PROPERTY_TYPE = "satilik-isyeri"  # Auto-updated by comprehensive_full_scan.py
 
+# =============================================================================
+# TÜM ŞEHİRLER VE KATEGORİLER - Site analyzer için
+# =============================================================================
+
+CITIES = [
+    'girne',
+    'iskele',
+    'lefkosa',
+    'gazimagusa',
+    'guzelyurt',
+    'lefke'
+]
+
+SALE_CATEGORIES = [
+    'satilik-daire',
+    'satilik-villa',
+    'satilik-ev',
+    'satilik-arsa',
+    'satilik-arazi',
+    'satilik-isyeri',
+    'satilik-proje',
+]
+
+RENT_CATEGORIES = [
+    'kiralik-daire',
+    'kiralik-villa',
+    'kiralik-ev',
+    'kiralik-isyeri',
+    'kiralik-gunluk',
+]
+
+# Tüm kategoriler birleşik
+PROPERTY_TYPES = SALE_CATEGORIES + RENT_CATEGORIES
+
 # Sıralama türü
 SORT = "id"  # id=ID sırası (eski->yeni), mr=en yeni, pa=fiyat artan, pd=fiyat azalan
 
