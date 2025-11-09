@@ -56,3 +56,23 @@ services:
       timeout: 3s
       start_period: 5s
       retries: 3
+
+  telegram-bot:
+    build:
+      context: ./scripts
+      dockerfile: Dockerfile.telegram
+    container_name: emlak-telegram-bot
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data:ro  # Read-only access to state files
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_USER_IDS=${TELEGRAM_USER_IDS}
+    privileged: true  # For vcgencmd access
+    network_mode: host  # Access to Pi hardware
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "telegram_bot.py"]
+      interval: 60s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
