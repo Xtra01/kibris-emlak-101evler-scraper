@@ -27,9 +27,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 async def test_single_config():
-    """Test with small config: Lefkoşa - Kiralik Gunluk"""
+    """Test with small config: Girne - Kiralik Gunluk (usually ~20-30 listings)"""
     
-    city = "lefkosa"
+    city = "girne"
     category = "kiralik-gunluk"
     
     logger.info("="*70)
