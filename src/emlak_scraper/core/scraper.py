@@ -439,7 +439,7 @@ async def main(city: str = None, category: str = None):
                 
                 # Check for 404 - category might not exist
                 if check_404_html(html):
-                    print(f"⚠️  CATEGORY NOT FOUND (404): {config.CITY}/{config.PROPERTY_TYPE}")
+                    print(f"⚠️  CATEGORY NOT FOUND (404): {scrape_city}/{scrape_category}")
                     print(f"This category doesn't exist on the site. Skipping...")
                     return  # Exit early - no point continuing
                 
