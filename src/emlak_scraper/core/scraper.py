@@ -314,8 +314,8 @@ async def main(city: str = None, category: str = None):
     scrape_city = city or config.CITY
     scrape_category = category or config.PROPERTY_TYPE
     
-    # base_search_url konfigürasyondan alınır
-    base_search_url = config.get_base_search_url()
+    # 🔧 FIX: Use dynamic base_search_url based on city/category
+    base_search_url = config.get_base_search_url(scrape_city, scrape_category)
     
     # 🔧 FIX: Use dynamic output directory based on city/category
     output_dir = config.get_output_dir(scrape_city, scrape_category)
@@ -352,7 +352,7 @@ async def main(city: str = None, category: str = None):
 
         # 1. Scrape search result pages using PLAYWRIGHT to gather listing links
         first_page_num = 1
-        search_page_url = config.get_search_url_with_page(first_page_num)
+        search_page_url = config.get_search_url_with_page(first_page_num, scrape_city, scrape_category)
         html = await scrape_page(search_page_url, crawler, use_playwright=True)
         if check_blocked_html(html):
             handle_access_blocked()
@@ -400,7 +400,7 @@ async def main(city: str = None, category: str = None):
 
         # Kalan sayfalar için döngü
         for page_num in range(2, max_search_pages + 1):
-            search_page_url = config.get_search_url_with_page(page_num)
+            search_page_url = config.get_search_url_with_page(page_num, scrape_city, scrape_category)
             print(f"\n--- Processing Search Page {page_num}/{max_search_pages} for links --- ")
 
             # Check if this search page already exists

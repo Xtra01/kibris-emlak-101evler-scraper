@@ -158,13 +158,26 @@ BLOCK_PHRASES = [
 # FONKSİYONLAR - Sistem tarafından kullanılır
 # =============================================================================
 
-def get_base_search_url():
-    """Ana arama URL'sini oluşturur"""
-    return f"{BASE_DOMAIN}/kibris/{PROPERTY_TYPE}/{CITY}"
+def get_base_search_url(city=None, category=None):
+    """Ana arama URL'sini oluşturur
+    
+    Parameters:
+        city: City name (or None to use config.CITY)
+        category: Category name (or None to use config.PROPERTY_TYPE)
+    """
+    url_city = city or CITY
+    url_category = category or PROPERTY_TYPE
+    return f"{BASE_DOMAIN}/kibris/{url_category}/{url_city}"
 
-def get_search_url_with_page(page=1):
-    """Sayfa numarası ile tam URL oluşturur"""
-    base_url = get_base_search_url()
+def get_search_url_with_page(page=1, city=None, category=None):
+    """Sayfa numarası ile tam URL oluşturur
+    
+    Parameters:
+        page: Page number
+        city: City name (or None to use config.CITY)
+        category: Category name (or None to use config.PROPERTY_TYPE)
+    """
+    base_url = get_base_search_url(city, category)
     return f"{base_url}?page={page}&sort={SORT}"
 
 def get_api_params(page=1):
