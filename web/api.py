@@ -22,11 +22,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_DIR = Path("/app/data/scraped")
+DATA_DIR = Path("/app/data/raw/listings")
 ANALYSIS_FILE = Path("/app/data/site_analysis.json")
 
 def count_files_by_config():
-    """Count JSON files per config"""
+    """Count HTML files per config (scraped listings)"""
     stats = {}
     if not DATA_DIR.exists():
         return stats
@@ -38,8 +38,10 @@ def count_files_by_config():
             if not config_dir.is_dir():
                 continue
             config_name = f"{city_dir.name}/{config_dir.name}"
-            json_files = list(config_dir.glob("*.json"))
-            stats[config_name] = len(json_files)
+            # Count HTML files (raw scraped data)
+            html_files = list(config_dir.glob("*.html"))
+            if len(html_files) > 0:
+                stats[config_name] = len(html_files)
     
     return stats
 
