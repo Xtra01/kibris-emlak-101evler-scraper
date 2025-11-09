@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.emlak_scraper.core import scraper
-from scripts.parse.auto_parse import parse_and_update
+from src.emlak_scraper.core import parser
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,7 +48,38 @@ async def test_single_config():
     # 2. AUTO-PARSE
     logger.info("🔄 [2/3] Running auto-parse...")
     try:
-        parse_and_update(city, category)
+        # Parse HTML files
+        html_dir = Path(f"data/raw/listings/{city}/{category}")
+        if html_dir.exists():
+            html_files = list(html_dir.glob("*.html"))
+            logger.info(f"   Found {len(html_files)} HTML files to parse")
+            
+            # Parse each file
+            parsed_data = []
+            for html_file in html_files:
+                try:
+                    data = parser.parse_html_file(str(html_file))
+                    if data:
+                        parsed_data.append(data)
+                except Exception as e:
+                    logger.warning(f"   Failed to parse {html_file.name}: {e}")
+            
+            # Save to CSV
+            if parsed_data:
+                import pandas as pd
+                df = pd.DataFrame(parsed_data)
+                
+                csv_dir = Path(f"data/processed/{city}/{category}")
+                csv_dir.mkdir(parents=True, exist_ok=True)
+                csv_file = csv_dir / "property_details.csv"
+                
+                df.to_csv(csv_file, index=False, encoding='utf-8')
+                logger.info(f"   ✅ Saved {len(parsed_data)} records to CSV")
+            else:
+                logger.warning("   ⚠️ No data parsed")
+        else:
+            logger.error(f"   ❌ HTML directory not found: {html_dir}")
+            
         logger.info("✅ Auto-parse completed")
     except Exception as e:
         logger.error(f"❌ Auto-parse failed: {e}")
