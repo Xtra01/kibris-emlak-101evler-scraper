@@ -1,0 +1,32 @@
+{
+  "config": {
+    "ingress": [
+      {
+        "hostname": "devtestenv.org",
+        "service": "http://172.17.0.1:3001"
+      },
+      {
+        "hostname": "json2excel.devtestenv.org",
+        "service": "http://172.17.0.1:8091"
+      },
+      {
+        "hostname": "emlak.devtestenv.org",
+        "service": "http://172.17.0.1:8092"
+      },
+      {
+        "hostname": "scraper.devtestenv.org",
+        "service": "http://172.17.0.1:80",
+        "originRequest": {
+          "noTLSVerify": false,
+          "httpHostHeader": "scraper.devtestenv.org"
+        }
+      },
+      {
+        "service": "http_status:404"
+      }
+    ],
+    "warp-routing": {
+      "enabled": false
+    }
+  }
+}
