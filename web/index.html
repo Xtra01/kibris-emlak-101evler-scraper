@@ -241,28 +241,43 @@
     </div>
     
     <script>
-        // Simple stats update (static for now, can be made dynamic with API)
+        // Update last update time
         document.getElementById('last-update').textContent = new Date().toLocaleString('tr-TR');
         
-        // Optional: Fetch real stats from API
-        /*
+        // Fetch real stats from API
         async function updateStats() {
             try {
                 const response = await fetch('/api/stats');
                 const data = await response.json();
+                
                 document.getElementById('total-files').textContent = data.total_files || '555';
                 document.getElementById('configs').textContent = data.total_configs || '72';
                 document.getElementById('completed').textContent = data.completed || '1';
                 document.getElementById('remaining').textContent = data.remaining || '71';
+                document.getElementById('last-update').textContent = new Date(data.last_updated).toLocaleString('tr-TR');
+                
+                // Update status indicator based on progress
+                const statusText = document.querySelector('.status-text');
+                if (data.remaining === 0) {
+                    statusText.textContent = 'Tarama Tamamlandı ✅';
+                    statusText.style.color = '#10b981';
+                } else if (data.completed > 1) {
+                    statusText.textContent = `Tarama Devam Ediyor (${data.progress_percent}%)`;
+                    statusText.style.color = '#f59e0b';
+                } else {
+                    statusText.textContent = 'Sistem Aktif - Idle Mode';
+                    statusText.style.color = '#10b981';
+                }
             } catch (error) {
                 console.log('API endpoint not available, using static data');
             }
         }
         
-        // Update every 30 seconds
+        // Update on load
         updateStats();
+        
+        // Update every 30 seconds
         setInterval(updateStats, 30000);
-        */
     </script>
 </body>
 </html>
